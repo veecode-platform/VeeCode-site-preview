@@ -1,0 +1,19 @@
+#
+# robots.txt
+#
+
+User-agent: *
+Disallow: /checkout
+Disallow: /contact-success
+Disallow: /failed
+Disallow: /success
+Disallow: /validate
+Disallow: /404
+Disallow: /pricing
+
+# assets
+Disallow: /assets/default/
+Disallow: /assets/home/
+Disallow: /assets/howitworks/
+Disallow: /assets/icons/
+Disallow: /assets/notFound/
