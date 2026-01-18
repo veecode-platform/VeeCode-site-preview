@@ -1,0 +1,171 @@
+{
+  "entries": [
+    {
+      "key": "backstage",
+      "id": "backstage",
+      "title": "Backstage",
+      "quadrant": "platforms",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Core Internal Developer Platform framework. Standard entry point for developers, ownership model, software catalog and golden paths."
+        }
+      ],
+      "links": [
+        {
+          "url": "https://backstage.io",
+          "title": "Backstage.io"
+        }
+      ]
+    },
+    {
+      "key": "veecode-devportal",
+      "id": "veecode-devportal",
+      "title": "VeeCode DevPortal",
+      "quadrant": "platforms",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Opinionated Platform Engineering distribution built on Backstage, focusing on runtime management, AI-assisted workflows and developer autonomy."
+        }
+      ]
+    },
+    {
+      "key": "kubernetes",
+      "id": "kubernetes",
+      "title": "Kubernetes",
+      "quadrant": "infrastructure",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Default compute substrate for platform workloads and application runtimes."
+        }
+      ]
+    },
+    {
+      "key": "gitops",
+      "id": "gitops",
+      "title": "GitOps (Argo CD / Flux)",
+      "quadrant": "infrastructure",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Declarative delivery model for platform and application lifecycle management."
+        }
+      ]
+    },
+    {
+      "key": "claude",
+      "id": "claude",
+      "title": "Claude (Anthropic)",
+      "quadrant": "developer-experience",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Primary LLM for reasoning-heavy tasks: documentation, architectural analysis, platform automation and policy-aware workflows."
+        }
+      ]
+    },
+    {
+      "key": "codex",
+      "id": "codex",
+      "title": "Codex / Code-Generation LLMs",
+      "quadrant": "developer-experience",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "AI-powered code generation and refactoring embedded into platform workflows, templates and golden paths."
+        }
+      ]
+    },
+    {
+      "key": "ai-golden-paths",
+      "id": "ai-golden-paths",
+      "title": "AI-Driven Golden Paths",
+      "quadrant": "developer-experience",
+      "timeline": [
+        {
+          "ringId": "trial",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Using LLMs to generate, validate and evolve golden paths dynamically instead of static templates."
+        }
+      ]
+    },
+    {
+      "key": "self-service-platform",
+      "id": "self-service-platform",
+      "title": "Self-Service Platform APIs",
+      "quadrant": "process",
+      "timeline": [
+        {
+          "ringId": "adopt",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "APIs and workflows enabling teams to provision infrastructure, services and environments autonomously."
+        }
+      ]
+    },
+    {
+      "key": "manual-infra",
+      "id": "manual-infra",
+      "title": "Manual Infrastructure Changes",
+      "quadrant": "process",
+      "timeline": [
+        {
+          "ringId": "hold",
+          "date": "2025-01-01T00:00:00.000Z",
+          "description": "Manual, non-declarative infrastructure changes outside GitOps workflows are discouraged."
+        }
+      ]
+    }
+  ],
+  "quadrants": [
+    {
+      "id": "platforms",
+      "name": "Platforms"
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure"
+    },
+    {
+      "id": "developer-experience",
+      "name": "Developer Experience & AI"
+    },
+    {
+      "id": "process",
+      "name": "Process & Governance"
+    }
+  ],
+  "rings": [
+    {
+      "id": "adopt",
+      "name": "ADOPT",
+      "color": "#5BA300",
+      "description": "Strategic, default choices for the Platform Engineering ecosystem."
+    },
+    {
+      "id": "trial",
+      "name": "TRIAL",
+      "color": "#009EB0",
+      "description": "Actively used and evaluated in production-like scenarios."
+    },
+    {
+      "id": "assess",
+      "name": "ASSESS",
+      "color": "#C7BA00",
+      "description": "Promising technologies under investigation."
+    },
+    {
+      "id": "hold",
+      "name": "HOLD",
+      "color": "#E09B96",
+      "description": "Technologies intentionally avoided or being phased out."
+    }
+  ]
+}
