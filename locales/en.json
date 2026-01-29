@@ -109,7 +109,7 @@
   },
   "home": {
     "hero": {
-      "title": "Speed with governance for engineering teams at scale.",
+      "title": "Cut Deploy Time by 70%.<br/>Without growing your DevOps team.",
       "description": "A <span class=\"font-semibold\">ready-to-use DevPortal</span>, built on Backstage, delivered as a <span class=\"font-semibold\">managed SaaS</span>, that centralizes <span class=\"font-semibold\">catalog, templates, and integrations</span> to unlock team autonomy and accelerate the <span class=\"font-semibold\">value stream</span> with security and compliance.",
       "buttons": {
         "button1": {
@@ -238,6 +238,21 @@
         "button2": {
           "label": "Get Started"
         }
+      },
+      "early-access": {
+        "badge": "🔥 CLOSES FEB 15 | 20 spots remaining",
+        "title": "Early Access: Get In First. Pay Less. Influence.",
+        "subtitle": "Private round for 20 high-fit accounts (scale-ups, fintechs, telecoms, regulated companies).",
+        "box-title": "What you get with Early Access:",
+        "benefit1": "Early access to the SaaS (before public launch)",
+        "benefit2": "Guided onboarding",
+        "benefit3": "Proximity to the roadmap and ability to influence the backlog",
+        "benefit4": "Special entry pricing (when applicable)",
+        "success": "Thank you! We'll be in touch soon.",
+        "placeholder": "Corporate email",
+        "submit": "I want to join",
+        "loading": "Sending...",
+        "error": "Error sending. Please try again."
       }
     }
   },
@@ -755,7 +770,7 @@
       },
       "message": {
         "label": "How Can we help",
-        "placeholder": "Yout Message"
+        "placeholder": "Your Message"
       },
       "buttonLabel": "Submit",
       "terms": {

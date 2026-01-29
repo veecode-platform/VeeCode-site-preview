@@ -238,6 +238,21 @@
         "button2": {
           "label": "Comece Agora"
         }
+      },
+      "early-access": {
+        "badge": "🔥 FECHA EM 15/FEV | 20 vagas restantes",
+        "title": "Early Access: Entre Antes. Pague Menos. Influencie.",
+        "subtitle": "Rodada privada para 20 contas com alto fit (scale-ups, fintechs, telecoms, empresas reguladas).",
+        "box-title": "O que você recebe no Early Access:",
+        "benefit1": "Acesso antecipado ao SaaS (antes do launch público)",
+        "benefit2": "Onboarding guiado",
+        "benefit3": "Proximidade com o roadmap e possibilidade de influenciar backlog",
+        "benefit4": "Condição especial de entrada (quando aplicável)",
+        "success": "Obrigado! Entraremos em contato em breve.",
+        "placeholder": "Email corporativo",
+        "submit": "Quero participar",
+        "loading": "Enviando...",
+        "error": "Erro ao enviar. Tente novamente."
       }
     }
   },
