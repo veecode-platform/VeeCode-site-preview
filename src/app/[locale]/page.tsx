@@ -165,13 +165,7 @@ export default async function Home({ params }: PageProps) {
         noTitle={t("ideal-for.no-title")}
         noItems={idealForNoItems}
       />
-      <CallToAction
-        title={t("call-to-action.title")}
-        subtitle={t("call-to-action.description")}
-        buttonLabel1={t("call-to-action.buttons.button1.label")}
-        buttonLabel2={t("call-to-action.buttons.button2.label")}
-        descriptionExternalLink={a("external-links.docs")}
-      />
+      <CallToAction />
       <Chatbot />
     </main>
   );
