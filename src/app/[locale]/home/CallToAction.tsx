@@ -13,10 +13,10 @@ const CallToAction: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-br from-primary to-primary/80 text-white py-24">
+    <section className="w-full bg-[#33FFCE] text-gray-900 py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="mx-auto mb-8 text-center">
-          <span className="inline-block bg-white/20 px-6 py-3 rounded-full text-xl font-bold">
+          <span className="inline-block bg-black/10 px-6 py-3 rounded-full text-xl font-bold">
             🔥 FECHA EM 15/FEV | 20 vagas restantes
           </span>
         </div>
@@ -25,7 +25,7 @@ const CallToAction: React.FC = () => {
           Early Access: Entre Antes. Pague Menos. Influencie.
         </h2>
 
-        <p className="text-xl text-center mb-16 text-white/90">
+        <p className="text-xl text-center mb-16 text-gray-800">
           Rodada privada para 20 contas com alto fit (scale-ups, fintechs,
           telecoms, empresas reguladas).
         </p>
@@ -72,7 +72,7 @@ const CallToAction: React.FC = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-primary text-white text-xl py-4 rounded-lg font-bold hover:bg-primary/90 transition-colors cursor-pointer"
+                className="w-full bg-gray-900 text-[#33FFCE] text-xl py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors cursor-pointer"
               >
                 Quero participar
               </button>
