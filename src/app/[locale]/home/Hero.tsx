@@ -10,7 +10,6 @@ interface HeroProps {
   description: string;
   buttonLabel1: string;
   buttonLabel2: string;
-  descriptionExternalLink: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -18,7 +17,6 @@ const Hero: React.FC<HeroProps> = ({
   description,
   buttonLabel1,
   buttonLabel2,
-  descriptionExternalLink,
 }) => {
   return (
     <section className="flex flex-col items-center">
