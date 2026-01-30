@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="flex w-full max-w-[1204px] flex-col items-center text-black text-center px-5">
         <ScrollReveal>
           <h1
-            className="text-5xl font-bold max-w-[900px] max-md:max-w-full max-md:text-3xl"
+            className="text-5xl font-bold max-md:text-3xl"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </ScrollReveal>
