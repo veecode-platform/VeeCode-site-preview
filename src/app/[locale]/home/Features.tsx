@@ -37,7 +37,7 @@ const Features: React.FC<FeaturesProps> = ({
   cards,
 }) => {
   return (
-    <section className="max-w-[90vw] mx-auto flex flex-col items-center">
+    <section className="max-w-[1204px] mx-auto flex flex-col items-center px-5">
       {label && (
         <ScrollReveal>
           <div className="items-center border border-[color:var(--Preto,#000)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.10)] flex min-h-[54px] gap-2 text-base text-[#1e1e1e] font-medium text-center leading-[1.6] bg-neutral-50 px-4 rounded-[30px] border-solid">
@@ -48,7 +48,7 @@ const Features: React.FC<FeaturesProps> = ({
       )}
       <Content>
         <ScrollReveal delay={0.1}>
-          <h2 className="text-black text-center text-[40px] font-bold mt-[37px] max-md:max-w-full">
+          <h2 className="text-black text-center text-5xl font-bold mt-[37px] max-md:max-w-full max-md:text-3xl">
             {title}
           </h2>
         </ScrollReveal>
