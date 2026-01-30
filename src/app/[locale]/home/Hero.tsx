@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/Button";
-import { ExternalLink, NavigationLink } from "@/components/ui/links";
+import { NavigationLink } from "@/components/ui/links";
 import { ScrollReveal } from "@/components/ui/animations";
 
 interface HeroProps {
@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <p
-            className="text-xl font-normal mt-[23px] max-md:max-w-full"
+            className="text-xl font-normal mt-[23px] max-w-[800px] max-md:max-w-full"
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </ScrollReveal>
@@ -43,15 +43,11 @@ const Hero: React.FC<HeroProps> = ({
               {buttonLabel1}
             </Button>
           </NavigationLink>
-          <ExternalLink
-            description={descriptionExternalLink}
-            href="https://docs.platform.vee.codes/devportal/installation-guide/VKDR/"
-            event="vkdrDocs"
-          >
+          <a href="#early-access">
             <Button variant="outline" size="sm" aria-label={buttonLabel2}>
               {buttonLabel2}
             </Button>
-          </ExternalLink>
+          </a>
         </div>
       </ScrollReveal>
     </section>

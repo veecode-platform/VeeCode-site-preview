@@ -48,7 +48,7 @@ const Features: React.FC<FeaturesProps> = ({
       )}
       <Content>
         <ScrollReveal delay={0.1}>
-          <h2 className="text-black text-center text-5xl font-bold mt-[37px] max-md:max-w-full max-md:text-3xl">
+          <h2 className="text-black text-center text-5xl font-bold mt-[37px] max-w-[900px] max-md:max-w-full max-md:text-3xl">
             {title}
           </h2>
         </ScrollReveal>

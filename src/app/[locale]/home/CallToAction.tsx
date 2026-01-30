@@ -38,7 +38,7 @@ const CallToAction: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-[#33FFCE] text-gray-900 py-24">
+    <section id="early-access" className="w-full bg-[#33FFCE] text-gray-900 py-24">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
           <div className="mx-auto mb-8 text-center">
