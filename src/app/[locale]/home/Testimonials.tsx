@@ -19,7 +19,7 @@ const IdealFor: React.FC<IdealForProps> = ({
   noItems,
 }) => {
   return (
-    <section className="bg-white py-24 self-stretch w-full px-[120px] max-md:px-5">
+    <section className="bg-white py-[86px] self-stretch w-full px-[120px] max-md:px-5">
       <ScrollReveal>
         <h2 className="text-5xl font-bold text-center mb-16 text-gray-900 max-md:text-3xl">
           {headline}
