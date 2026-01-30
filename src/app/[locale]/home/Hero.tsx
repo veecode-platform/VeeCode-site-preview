@@ -25,13 +25,13 @@ const Hero: React.FC<HeroProps> = ({
       <div className="flex w-full max-w-[1204px] flex-col items-center text-black text-center px-5">
         <ScrollReveal>
           <h1
-            className="text-5xl font-bold max-md:max-w-full max-md:text-3xl"
+            className="text-5xl font-bold max-w-[900px] max-md:max-w-full max-md:text-3xl"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <p
-            className="text-xl font-normal mt-[23px] max-w-[800px] max-md:max-w-full"
+            className="text-xl font-normal mt-[23px] max-w-[705px] max-md:max-w-full"
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </ScrollReveal>
