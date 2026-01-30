@@ -22,10 +22,10 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <section className="flex flex-col items-center">
-      <div className="flex w-[90vw] md:w-[800px] max-w-full flex-col items-center text-black text-center">
+      <div className="flex w-full max-w-[1204px] flex-col items-center text-black text-center px-5">
         <ScrollReveal>
           <h1
-            className="text-[50px] font-bold max-md:max-w-full max-md:text-[40px]"
+            className="text-5xl font-bold max-md:max-w-full max-md:text-3xl"
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </ScrollReveal>
