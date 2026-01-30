@@ -63,7 +63,7 @@ const ClientLogos: React.FC<ClientLogosProps> = ({ label }) => {
                 alt={customer.alt}
                 width={181}
                 height={92}
-                className="aspect-[2.24] object-contain w-[140px] md:w-[181px] grayscale hover:grayscale-0 transition-all duration-300"
+                className="aspect-[2.24] object-contain w-[140px] md:w-[181px] grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300"
                 unoptimized
               />
             </div>
