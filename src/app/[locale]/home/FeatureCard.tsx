@@ -33,7 +33,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   const IconComponent = iconMap[icon];
 
   return (
-    <div className="bg-white rounded-xl p-8 shadow-md flex flex-col items-start text-left">
+    <div className="bg-white rounded-xl p-8 shadow-md flex flex-col items-start text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
       {IconComponent && (
         <div className="w-16 h-16 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
           <IconComponent className="w-8 h-8 text-orange-500" />

@@ -61,7 +61,7 @@ export const Input: React.FC<InputProps> = ({
             placeholder={placeholder}
             className={`w-full h-12 px-2 py-1 text-base rounded border ${
               error ? "border-red-700" : "border-[#33FFCE]"
-            } bg-[#f3f3f3] placeholder:text-sm focus:border-[#33FFCE] focus:text-lg autofill:shadow-inner`}
+            } bg-[#f3f3f3] placeholder:text-sm focus:border-[#33FFCE] focus:ring-2 focus:ring-[#33FFCE]/30 focus:outline-none focus:text-lg autofill:shadow-inner transition-all duration-300`}
           />
         </div>
       )}
@@ -163,7 +163,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
             placeholder={placeholder}
             className={`w-full min-h-[15vh] p-2 text-base font-sans rounded resize-y border ${
               error ? "border-red-700" : "border-[#33FFCE]"
-            } bg-[#f3f3f3]`}
+            } bg-[#f3f3f3] focus:ring-2 focus:ring-[#33FFCE]/30 focus:outline-none transition-all duration-300`}
           />
         </div>
       )}
