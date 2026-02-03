@@ -5,7 +5,8 @@ import { supabase } from "@/lib/supabase";
 import { useTranslations } from "next-intl";
 import { ScrollReveal } from "@/components/ui/animations";
 
-const CallToAction: React.FC = () => {
+// Extracted form component to isolate state changes and prevent ScrollReveal re-renders
+const EmailSignupForm: React.FC = () => {
   const t = useTranslations("home.call-to-action.early-access");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -36,6 +37,42 @@ const CallToAction: React.FC = () => {
 
     setSubmitted(true);
   };
+
+  if (submitted) {
+    return (
+      <p className="text-center text-lg font-semibold text-green-700">
+        {t("success")}
+      </p>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+      <input
+        type="email"
+        required
+        placeholder={t("placeholder")}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        disabled={loading}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-[#33FFCE] focus:border-[#33FFCE] transition-shadow duration-300 disabled:opacity-50"
+      />
+      {error && (
+        <p className="text-red-600 text-sm">{error}</p>
+      )}
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-gray-900 text-[#33FFCE] text-xl py-4 rounded-lg font-bold hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50"
+      >
+        {loading ? t("loading") : t("submit")}
+      </button>
+    </form>
+  );
+};
+
+const CallToAction: React.FC = () => {
+  const t = useTranslations("home.call-to-action.early-access");
 
   return (
     <section id="early-access" className="w-full bg-[#33FFCE] text-gray-900 py-24">
@@ -87,33 +124,7 @@ const CallToAction: React.FC = () => {
 
             <hr className="my-8 border-gray-200" />
 
-            {submitted ? (
-              <p className="text-center text-lg font-semibold text-green-700">
-                {t("success")}
-              </p>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-                <input
-                  type="email"
-                  required
-                  placeholder={t("placeholder")}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={loading}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-[#33FFCE] focus:border-[#33FFCE] transition-shadow duration-300 disabled:opacity-50"
-                />
-                {error && (
-                  <p className="text-red-600 text-sm">{error}</p>
-                )}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-gray-900 text-[#33FFCE] text-xl py-4 rounded-lg font-bold hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50"
-                >
-                  {loading ? t("loading") : t("submit")}
-                </button>
-              </form>
-            )}
+            <EmailSignupForm />
           </div>
         </ScrollReveal>
       </div>
