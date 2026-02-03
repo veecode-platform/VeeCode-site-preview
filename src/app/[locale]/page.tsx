@@ -130,7 +130,6 @@ export default async function Home({ params }: PageProps) {
   const idealForNoItems = [
     t("ideal-for.no-1"),
     t("ideal-for.no-2"),
-    t("ideal-for.no-3"),
   ];
 
   return (
