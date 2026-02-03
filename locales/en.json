@@ -215,18 +215,17 @@
       }
     },
     "ideal-for": {
-      "headline": "It's for you if:",
-      "yes-title": "✅ YES, VeeCode is ideal if you:",
+      "headline": "The ideal VeeCode for your team",
+      "yes-title": "VeeCode SaaS",
       "yes-1": "✓ Have 3+ squads and 20+ microservices/APIs",
       "yes-2": "✓ Lose hours/day with platform tickets",
       "yes-3": "✓ Onboarding new devs takes weeks",
       "yes-4": "✓ Each deploy is a \"surprise\"",
       "yes-5": "✓ Need compliance (fintech, healthcare, telecom)",
       "yes-6": "✓ Evaluated Backstage but \"too much work to maintain\"",
-      "no-title": "❌ NOT ideal if:",
-      "no-1": "✗ You have <10 services",
-      "no-2": "✗ Team <5 devs",
-      "no-3": "✗ Infrastructure 100% on-premise without cloud"
+      "no-title": "VeeCode Self Hosted",
+      "no-1": "✓ Team <5 devs",
+      "no-2": "✓ Infrastructure 100% on-premise without cloud"
     },
     "call-to-action": {
       "title": "VeeCode IDP: The Strategic Pillar of Modern Engineering",

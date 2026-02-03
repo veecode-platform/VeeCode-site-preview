@@ -39,7 +39,7 @@ const IdealFor: React.FC<IdealForProps> = ({
           </div>
         </StaggerItem>
         <StaggerItem>
-          <div className="bg-red-50 rounded-2xl p-10">
+          <div className="bg-green-50 rounded-2xl p-10">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">{noTitle}</h3>
             <ul className="space-y-4">
               {noItems.map((item, index) => (

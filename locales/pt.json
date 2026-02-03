@@ -215,18 +215,17 @@
       }
     },
     "ideal-for": {
-      "headline": "É para você se:",
-      "yes-title": "✅ SIM, VeeCode é ideal se você:",
+      "headline": "A VeeCode ideal para seu time",
+      "yes-title": "VeeCode SaaS",
       "yes-1": "✓ Tem 3+ squads e 20+ microserviços/APIs",
       "yes-2": "✓ Perde horas/dia com tickets para plataforma",
       "yes-3": "✓ Onboarding de novos devs leva semanas",
       "yes-4": "✓ Cada deploy é uma \"surpresa\"",
       "yes-5": "✓ Precisa de compliance (fintech, saúde, telecom)",
       "yes-6": "✓ Avaliou Backstage mas \"muito trabalho manter\"",
-      "no-title": "❌ NÃO é ideal se:",
-      "no-1": "✗ Você tem <10 serviços",
-      "no-2": "✗ Time <5 devs",
-      "no-3": "✗ Infraestrutura 100% on-premise sem cloud"
+      "no-title": "VeeCode Self Hosted",
+      "no-1": "✓ Time <5 devs",
+      "no-2": "✓ Infraestrutura 100% on-premise sem cloud"
     },
     "call-to-action": {
       "title": "VeeCode IDP: O Pilar Estratégico da Engenharia Moderna",
