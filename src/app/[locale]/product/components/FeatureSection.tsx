@@ -1,5 +1,6 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
+
 interface Feature {
   id: number;
   icon: string;
@@ -9,39 +10,34 @@ interface Feature {
 }
 
 interface FeatureSectionProps {
-  leftFeatures: Feature[];
-  rightFeatures: Feature[];
+  headline: string;
+  subheading: string;
+  features: Feature[];
 }
 
 const FeatureSection: React.FC<FeatureSectionProps> = ({
-  leftFeatures,
-  rightFeatures,
+  headline,
+  subheading,
+  features,
 }) => {
   return (
-    <section className="self-center w-full max-w-[1496px] ml-2.5 my-[213px] max-md:max-w-full max-md:my-10 pb-10 md:pb-0">
-      <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
-        <div className="w-[100%] md:w-[50%] h-full flex flex-col justify-between gap-10 md:gap-[284px] md:border-l-1 md:border-[#33FFCE]">
-          {leftFeatures.map((feature) => (
-            <div key={feature.id}>
-              <FeatureCard
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                altText={feature.altText}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="w-[100%] md:w-[50%] flex flex-col justify-center gap-10 md:gap-[284px] md:border-l-1 md:border-[#33FFCE]">
-          {rightFeatures.map((feature) => (
-            <div key={feature.id}>
-              <FeatureCard
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                altText={feature.altText}
-              />
-            </div>
+    <section className="bg-white py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-5xl font-bold text-center text-slate-900 mb-4">
+          {headline}
+        </h1>
+        <p className="text-2xl text-gray-600 text-center mb-16">
+          {subheading}
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <FeatureCard
+              key={feature.id}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+              altText={feature.altText}
+            />
           ))}
         </div>
       </div>
