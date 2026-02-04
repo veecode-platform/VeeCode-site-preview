@@ -256,13 +256,15 @@
     }
   },
   "product": {
+    "headline": "VeeCode Products",
+    "subheading": "VeeCode Self Hosted",
     "card1": {
       "title": "API Catalog",
-      "description": "Devportal by VeeCode Platform is the ideal platform to centralize and catalog your APIs efficiently. With Devportal, you can view, test, and manage all your APIs in one place while also accessing the documentation and plugins needed to develop your project, app, or feature."
+      "description": "Centralize and catalog APIs efficiently. With Devportal you can view, test, and manage all your APIs in one place while also accessing the documentation and plugins needed to develop your project, app, or feature."
     },
     "card2": {
       "title": "Software Templates",
-      "description": "With Devportal, you can customize your environment with development and infrastructure templates, as well as have the freedom to personalize pipelines. The platform offers a variety of pre-configured templates that speed up the development process and ensure consistency in your product."
+      "description": "Customize your environment with development and infrastructure templates, as well as have the freedom to personalize pipelines. Accelerate the development process and ensure consistency in your product."
     },
     "card3": {
       "title": "Kong Service Manager",
@@ -274,7 +276,7 @@
     },
     "card5": {
       "title": "VeeCode RBAC",
-      "description": "VeeCode RBAC allows you to configure the access you need to ensure customized permissions. Select who can or cannot view items, perform tasks, or make changes, ensuring only relevant and pertinent information is shown to each user type."
+      "description": "Configure access, select who can or cannot view items, perform tasks, or make changes, ensuring only relevant and pertinent information is shown to each user type."
     }
   },
   "solutions": {

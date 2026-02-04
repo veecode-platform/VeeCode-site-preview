@@ -256,17 +256,19 @@
     }
   },
   "product": {
+    "headline": "Produtos VeeCode",
+    "subheading": "VeeCode Self Hosted",
     "card1": {
       "title": "Catálogo de APIs",
-      "description": "O Devportal by VeeCode Platform é a plataforma ideal para centralizar e catalogar suas APIs de maneira eficiente. Com o Devportal você pode ver, testar e gerenciar todas as suas APIs em um único lugar enquanto também tem acesso à documentação e plugins necessários para desenvolver o seu projeto, app ou feature."
+      "description": "Centralize e catalogue APIs de maneira eficiente. Com o Devportal você pode ver, testar e gerenciar todas as suas APIs em um único lugar enquanto também tem acesso à documentação e plugins necessários para desenvolver o seu projeto, app ou feature."
     },
     "card2": {
       "title": "Software Templates",
-      "description": "Com o Devportal você pode customizar seu ambiente com templates para desenvolvimento e infraestrutura, assim como tem a liberdade para personalizar pipelines. A plataforma oferece uma variedade de templates pré-configurados que aceleram o processo de desenvolvimento e garantem consistência no seu produto"
+      "description": "Customize seu ambiente com templates para desenvolvimento e infraestrutura, assim como tem a liberdade para personalizar pipelines. Acelere o processo de desenvolvimento e garanta consistência no seu produto."
     },
     "card3": {
       "title": "Kong Service Manager",
-      "description": "Gerencie e administre informações sobre os serviços do Kong. Liste e manipule rotas, gerencie plugins sem sair do DevPortal. Acesse detalhes dos serviços e APIs"
+      "description": "Gerencie e administre informações sobre os serviços do Kong. Liste e manipule rotas, gerencie plugins sem sair do DevPortal. Acesse detalhes dos serviços e APIs."
     },
     "card4": {
       "title": "VeeCode Docs",
@@ -274,7 +276,7 @@
     },
     "card5": {
       "title": "VeeCode RBAC",
-      "description": "O VeeCode RBAC permite a configuração de acessos que você precisa para garantir acesso customizado. Selecione quem pode ou não, ver itens, executar tarefas ou realizar mudanças, garantindo mostrar apenas informações pertinentes e relevantes para cada tipo de usuário."
+      "description": "Configure acessos, selecione quem pode ou não, ver itens, executar tarefas ou realizar mudanças, garantindo mostrar apenas informações pertinentes e relevantes para cada tipo de usuário."
     }
   },
   "solutions": {

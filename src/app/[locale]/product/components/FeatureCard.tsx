@@ -15,19 +15,19 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   altText,
 }) => {
   return (
-    <div className="flex gap-[14px_21px] flex-wrap h-full md:h-[284px] text-slate-900 w-[95vw] md:w-full border-l-4 border-[#33FFCE] p-10 bg-neutral-50 md:bg-transparent">
+    <div className="bg-white rounded-xl p-8 shadow-md h-full flex flex-col">
       <Image
         src={icon}
         alt={altText || title}
-        className="aspect-[1] object-contain w-[70px] shrink-0"
-        width={64.167}
-        height={55.417}
+        className="object-contain w-16 h-16 mb-4"
+        width={64}
+        height={64}
         unoptimized
       />
-      <h2 className="text-4xl font-bold grow shrink w-[468px] max-md:max-w-full flex items-center justify-start">
+      <h3 className="text-xl font-semibold text-slate-900 mb-3">
         {title}
-      </h2>
-      <p className="text-xl font-normal grow shrink w-[560px] max-md:max-w-full">
+      </h3>
+      <p className="text-base text-gray-600 leading-relaxed flex-1">
         {description}
       </p>
     </div>
