@@ -1,73 +1,76 @@
 "use client";
 
-import React, { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import React, { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { ScrollReveal } from "@/components/ui/animations";
 
-// Extracted form component to isolate state changes and prevent ScrollReveal re-renders
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (config: {
+          portalId: string;
+          formId: string;
+          region: string;
+          target: string;
+        }) => void;
+      };
+    };
+  }
+}
+
+// HubSpot form component for Early Access signup
 const EmailSignupForm: React.FC = () => {
-  const t = useTranslations("home.call-to-action.early-access");
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const formCreatedRef = useRef(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
+  useEffect(() => {
+    // Prevent duplicate form creation
+    if (formCreatedRef.current) return;
 
-    const source = process.env.NEXT_PUBLIC_SITE_ENV || "prod";
+    const createForm = () => {
+      if (window.hbspt && formContainerRef.current) {
+        // Clear any existing content
+        formContainerRef.current.innerHTML = "";
 
-    const { error: insertError } = await supabase
-      .from("email_signups")
-      .insert({ email, source });
-
-    setLoading(false);
-
-    if (insertError) {
-      if (insertError.code === "23505") {
-        setSubmitted(true);
-      } else {
-        setError(t("error"));
+        window.hbspt.forms.create({
+          portalId: "48576194",
+          formId: "fc26de6f-8d62-4328-8814-675a29ce0d4c",
+          region: "na1",
+          target: "#hubspot-form-container",
+        });
+        formCreatedRef.current = true;
       }
+    };
+
+    // Check if HubSpot script is already loaded
+    if (window.hbspt) {
+      createForm();
       return;
     }
 
-    setSubmitted(true);
-  };
+    // Load HubSpot script dynamically
+    const script = document.createElement("script");
+    script.src = "//js.hsforms.net/forms/embed/v2.js";
+    script.charset = "utf-8";
+    script.async = true;
+    script.onload = createForm;
+    document.head.appendChild(script);
 
-  if (submitted) {
-    return (
-      <p className="text-center text-lg font-semibold text-green-700">
-        {t("success")}
-      </p>
-    );
-  }
+    return () => {
+      // Cleanup: remove script on unmount if needed
+      formCreatedRef.current = false;
+    };
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-      <input
-        type="email"
-        required
-        placeholder={t("placeholder")}
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        disabled={loading}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-[#33FFCE] focus:border-[#33FFCE] transition-shadow duration-300 disabled:opacity-50"
+    <div className="mt-8">
+      <div
+        id="hubspot-form-container"
+        ref={formContainerRef}
+        className="hubspot-form-wrapper"
       />
-      {error && (
-        <p className="text-red-600 text-sm">{error}</p>
-      )}
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full bg-gray-900 text-[#33FFCE] text-xl py-4 rounded-lg font-bold hover:bg-gray-800 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-50"
-      >
-        {loading ? t("loading") : t("submit")}
-      </button>
-    </form>
+    </div>
   );
 };
 
