@@ -1,5 +1,5 @@
 import React from "react";
-import ServiceCard from "./ServiceCard";
+import ServiceCard, { HubSpotFormConfig } from "./ServiceCard";
 
 export interface ServiceCardProps {
   id: number;
@@ -8,6 +8,7 @@ export interface ServiceCardProps {
   buttonLabel1: string;
   externalLink: string;
   descriptionExternalLink: string;
+  hubspotForm?: HubSpotFormConfig;
 }
 
 interface ServiceSectionProps {
@@ -29,6 +30,7 @@ const ServicesSection: React.FC<ServiceSectionProps> = ({ cards }) => {
               buttonLabel1={service.buttonLabel1}
               externalLink={service.externalLink}
               descriptionExternalLink={service.descriptionExternalLink}
+              hubspotForm={service.hubspotForm}
             />
           </div>
         ))}
