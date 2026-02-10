@@ -55,6 +55,10 @@
     "terms-of-service": {
       "title": "Termos de Serviço | VeeCode Platform",
       "description": "Sinta-se à vontade para revisar nossos termos de serviço."
+    },
+    "pricing": {
+      "title": "Preços | VeeCode Platform",
+      "description": "Explore os planos de preços da VeeCode Platform e encontre a melhor opção para sua equipe."
     }
   },
   "manifest": {
@@ -84,7 +88,8 @@
     "solutions": "Soluções",
     "resources": "Recursos",
     "comparison": "Veecode vs. Backstage",
-    "demo": "Acesse a Demo"
+    "demo": "Acesse a Demo",
+    "pricing": "Preços"
   },
   "localeSwitcher": {
     "pt": "<p>PT</p> <span>🇧🇷</span>",

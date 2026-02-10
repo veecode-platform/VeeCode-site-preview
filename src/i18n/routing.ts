@@ -22,6 +22,7 @@ export const routing = defineRouting({
     "/contact-us": "/contact-us",
     "/contact-success": "/contact-success",
     "/contact-failed": "/contact-failed",
+    "/pricing": "/pricing",
   },
 });
 
