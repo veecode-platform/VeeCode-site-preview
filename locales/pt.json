@@ -223,7 +223,7 @@
       "yes-4": "✓ Cada deploy é uma \"surpresa\"",
       "yes-5": "✓ Precisa de compliance (fintech, saúde, telecom)",
       "yes-6": "✓ Avaliou Backstage mas \"muito trabalho manter\"",
-      "no-title": "VeeCode Self Hosted",
+      "no-title": "VeeCode IDP Self Hosted",
       "no-1": "✓ Time <5 devs",
       "no-2": "✓ Infraestrutura 100% on-premise sem cloud"
     },
@@ -257,7 +257,7 @@
   },
   "product": {
     "headline": "Produtos VeeCode",
-    "subheading": "VeeCode Self Hosted",
+    "subheading": "VeeCode IDP Self Hosted",
     "card1": {
       "title": "Catálogo de APIs",
       "description": "Centralize e catalogue APIs de maneira eficiente. Com o Devportal você pode ver, testar e gerenciar todas as suas APIs em um único lugar enquanto também tem acesso à documentação e plugins necessários para desenvolver o seu projeto, app ou feature."
