@@ -64,6 +64,13 @@ const MenuMobile = () => {
             >
               {t("comparison")}
             </NavigationLink>
+            <NavigationLink
+              href="/pricing"
+              onClick={toggleMenu}
+              className="text-neutral-50 self-stretch my-auto hover:text-[rgba(51,255,205,1)] p-4 hover:bg-neutral-700"
+            >
+              {t("pricing")}
+            </NavigationLink>
             <div className="p-4 relative inline-flex items-center">
               <Button
                 aria-label={t("demo")}

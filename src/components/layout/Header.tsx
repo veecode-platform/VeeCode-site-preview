@@ -48,6 +48,12 @@ const Header: React.FC<PatternComponentProps> = async ({ locale }) => {
           >
             {t("comparison")}
           </NavigationLink>
+          <NavigationLink
+            href="/pricing"
+            className="text-neutral-50 self-stretch my-auto hover:text-[rgba(51,255,205,1)]"
+          >
+            {t("pricing")}
+          </NavigationLink>
 
           <div className="relative inline-flex items-center">
             <Button
