@@ -1,8 +1,6 @@
 import { LayoutProps, PageProps } from "@/lib/@types/pageProps";
 import CTASection from "../ui/solutions/CTASection";
-import HeroSection from "../solutions/components/HeroSection";
 import PricingSection from "../solutions/components/PricingSection";
-import ServicesSection from "../solutions/components/ServicesSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CHECK_ICON } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
@@ -27,40 +25,6 @@ export default async function PricingPage({ params }: PageProps) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "solutions" });
-  const a = await getTranslations({ locale, namespace: "accessibility" });
-
-  const servicesCards = [
-    {
-      id: 1,
-      title: t("services-section.cards.card1.title"),
-      description: t("services-section.cards.card1.description"),
-      buttonLabel1: t("services-section.cards.card1.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card1.buttons.button2.label"),
-      externalLink:
-        "https://aws.amazon.com/marketplace/pp/prodview-aybwnwq4fx2ts?sr=0-1&ref_=beagle&applicationId=AWSMPContessa",
-      descriptionExternalLink: a("external-links.aws.ami"),
-    },
-    {
-      id: 2,
-      title: t("services-section.cards.card2.title"),
-      description: t("services-section.cards.card2.description"),
-      buttonLabel1: t("services-section.cards.card2.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card2.buttons.button2.label"),
-      externalLink:
-        "https://aws.amazon.com/marketplace/pp/prodview-7pqhop2z4kkx2?sr=0-4&ref_=beagle&applicationId=AWSMPContessa",
-      descriptionExternalLink: a("external-links.aws.lauch-workshop"),
-    },
-    {
-      id: 3,
-      title: t("services-section.cards.card3.title"),
-      description: t("services-section.cards.card3.description"),
-      buttonLabel1: t("services-section.cards.card3.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card3.buttons.button2.label"),
-      externalLink:
-        "https://aws.amazon.com/marketplace/pp/prodview-bckwzbve7ftgw?sr=0-3&ref_=beagle&applicationId=AWSMPContessa",
-      descriptionExternalLink: a("external-links.aws.fast-track"),
-    },
-  ];
 
   const pricingCards = [
     {
@@ -146,8 +110,6 @@ export default async function PricingPage({ params }: PageProps) {
 
   return (
     <main className="bg-white flex flex-col overflow-hidden items-center">
-      <HeroSection title={t("hero.title")} subtitle={t("hero.description")} />
-      <ServicesSection cards={servicesCards} />
       <PricingSection title={t("pricing.title")} cards={pricingCards} />
       <CTASection
         title={t("cta-section.title")}
