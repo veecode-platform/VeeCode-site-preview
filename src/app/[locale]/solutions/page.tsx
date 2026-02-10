@@ -33,9 +33,13 @@ export default async function SolutionsPage({ params }: PageProps) {
       title: t("services-section.cards.card1.title"),
       description: t("services-section.cards.card1.description"),
       buttonLabel1: t("services-section.cards.card1.buttons.button1.label"),
-      externalLink:
-        "https://aws.amazon.com/marketplace/pp/prodview-aybwnwq4fx2ts?sr=0-1&ref_=beagle&applicationId=AWSMPContessa",
+      externalLink: "",
       descriptionExternalLink: a("external-links.aws.ami"),
+      hubspotForm: {
+        portalId: "48576194",
+        formId: "fc26de6f-8d62-4328-8814-675a29ce0d4c",
+        region: "na1",
+      },
     },
     {
       id: 2,
