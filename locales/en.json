@@ -292,38 +292,29 @@
     "services-section": {
       "cards": {
         "card1": {
-          "title": "Unlimited Testing",
-          "description": "Count on our team of qualified professionals to help you maximize the use of our products and tools. We are here to answer questions about installation, configuration, and usage, considering your workflow. Report any errors you encounter and their impact so we can fix them and prevent future issues.",
+          "title": "VeeCode SaaS",
+          "description": "✅ DevPortal ready to use<br/>✅ Centralized catalogs, templates, and integrations<br/>✅ Simplified onboarding",
           "buttons": {
             "button1": {
               "label": "Get Started"
-            },
-            "button2": {
-              "label": "Contact Us"
             }
           }
         },
         "card2": {
           "title": "Launch Workshop",
-          "description": "Platform Engineering facilitates cloud migration by providing information, knowledge, and a strategic plan. The workshop explores the principles, benefits, and role of platform engineering, enabling participants to create a personalized strategic roadmap. By the end, they will have the knowledge to confidently launch their Internal Developer Portal.",
+          "description": "✅ Turn complexity into an executable plan<br/>✅ Launch your IDP<br/>✅ Leave with your roadmap ready<br/><br/><span style=\"font-weight:600\">For whom:</span> CTOs, Platform Leads, and Eng Managers who need to prove ROI fast",
           "buttons": {
             "button1": {
               "label": "Get Started"
-            },
-            "button2": {
-              "label": "Contact Us"
             }
           }
         },
         "card3": {
           "title": "Fast Track",
-          "description": "VeeCode Fast Track offers a specialized IDP solution to quickly improve the developer experience. Through a time-bound effort, a dedicated team quickly sets up a DevPortal instance and provides initial templates and automations for immediate productivity gains.",
+          "description": "✅ Fixed deadline, dedicated team<br/>✅ Templates + automations<br/>✅ Deliver observability to your teams<br/><br/><span style=\"font-weight:600\">Ideal if:</span> you need fast results without increasing platform headcount",
           "buttons": {
             "button1": {
               "label": "Get Started"
-            },
-            "button2": {
-              "label": "Contact Us"
             }
           }
         }
