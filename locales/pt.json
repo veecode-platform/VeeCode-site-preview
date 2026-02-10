@@ -292,38 +292,29 @@
     "services-section": {
       "cards": {
         "card1": {
-          "title": "Teste Ilimitado",
-          "description": "Conte com nossa equipe de profissionais qualificados para ajudar a maximizar o uso de nossos produtos e ferramentas. Estamos aqui para responder perguntas sobre instalação, configuração e uso, levando em conta seu fluxo de trabalho. Relate quaisquer erros que encontrar e seu impacto, para que possamos corrigi-los e prevenir problemas futuros.",
+          "title": "VeeCode SaaS",
+          "description": "✅ DevPortal pronto para uso<br/>✅ Catálogos, templates e integrações centralizadas<br/>✅ Onboarding descomplicado",
           "buttons": {
             "button1": {
               "label": "Comece Agora"
-            },
-            "button2": {
-              "label": "Contate-nos"
             }
           }
         },
         "card2": {
           "title": "Launch Workshop",
-          "description": "A Engenharia de Plataforma facilita a migração para a nuvem, fornecendo informações, conhecimento e um plano estratégico. O workshop explora os princípios, benefícios e o papel da engenharia de plataforma, permitindo que os participantes criem um roteiro estratégico personalizado. Ao final, eles terão o conhecimento para lançar seu Portal do Desenvolvedor Interno com confiança.",
+          "description": "✅ Transforme complexidade em plano executável<br/>✅ Lançe seu IDP<br/>✅ Saia com seu roadmap pronto<br/><br/><span style=\"font-weight:600\">Para quem:</span> CTOs, Platform Leads e Eng Managers que precisam provar ROI rápido",
           "buttons": {
             "button1": {
               "label": "Comece Agora"
-            },
-            "button2": {
-              "label": "Contate-nos"
             }
           }
         },
         "card3": {
           "title": "Fast Track",
-          "description": "O VeeCode Fast Track oferece uma solução especializada de IDP para melhorar rapidamente a experiência do desenvolvedor. Através de um esforço com prazo definido, uma equipe dedicada configura rapidamente uma instância do DevPortal e fornece modelos e automações iniciais para ganhos imediatos de produtividade.",
+          "description": "✅ Prazo fixo, time dedicado<br/>✅ Templates + automações<br/>✅ Entregue observabilidade aos seus times<br/><br/><span style=\"font-weight:600\">Ideal se:</span> você precisa resultados rápidos sem aumentar headcount de plataforma",
           "buttons": {
             "button1": {
               "label": "Comece Agora"
-            },
-            "button2": {
-              "label": "Contate-nos"
             }
           }
         }

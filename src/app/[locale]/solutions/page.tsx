@@ -33,7 +33,6 @@ export default async function SolutionsPage({ params }: PageProps) {
       title: t("services-section.cards.card1.title"),
       description: t("services-section.cards.card1.description"),
       buttonLabel1: t("services-section.cards.card1.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card1.buttons.button2.label"),
       externalLink:
         "https://aws.amazon.com/marketplace/pp/prodview-aybwnwq4fx2ts?sr=0-1&ref_=beagle&applicationId=AWSMPContessa",
       descriptionExternalLink: a("external-links.aws.ami"),
@@ -43,7 +42,6 @@ export default async function SolutionsPage({ params }: PageProps) {
       title: t("services-section.cards.card2.title"),
       description: t("services-section.cards.card2.description"),
       buttonLabel1: t("services-section.cards.card2.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card2.buttons.button2.label"),
       externalLink:
         "https://aws.amazon.com/marketplace/pp/prodview-7pqhop2z4kkx2?sr=0-4&ref_=beagle&applicationId=AWSMPContessa",
       descriptionExternalLink: a("external-links.aws.lauch-workshop"),
@@ -53,7 +51,6 @@ export default async function SolutionsPage({ params }: PageProps) {
       title: t("services-section.cards.card3.title"),
       description: t("services-section.cards.card3.description"),
       buttonLabel1: t("services-section.cards.card3.buttons.button1.label"),
-      buttonLabel2: t("services-section.cards.card3.buttons.button2.label"),
       externalLink:
         "https://aws.amazon.com/marketplace/pp/prodview-bckwzbve7ftgw?sr=0-3&ref_=beagle&applicationId=AWSMPContessa",
       descriptionExternalLink: a("external-links.aws.fast-track"),

@@ -6,7 +6,6 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   buttonLabel1: string;
-  buttonLabel2: string;
   externalLink: string;
   descriptionExternalLink: string;
 }
@@ -28,7 +27,6 @@ const ServicesSection: React.FC<ServiceSectionProps> = ({ cards }) => {
               title={service.title}
               description={service.description}
               buttonLabel1={service.buttonLabel1}
-              buttonLabel2={service.buttonLabel2}
               externalLink={service.externalLink}
               descriptionExternalLink={service.descriptionExternalLink}
             />
