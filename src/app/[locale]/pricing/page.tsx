@@ -59,9 +59,9 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
         <div className="mb-8">
           <span className="text-5xl font-extrabold text-black">{card.price}</span>
           {card.period && (
-            <span className="text-xl text-gray-400 inline">{card.period}</span>
+            <span className={`text-xl inline ${card.isFreeTier ? "text-gray-400" : "text-gray-200"}`}>{card.period}</span>
           )}
-          <p className={`text-sm mt-2 ${card.isFreeTier ? "text-gray-500" : "text-gray-200"}`}>
+          <p className={`text-sm mt-2 ${card.isFreeTier || !card.period ? "text-gray-500" : "text-gray-200"}`}>
             {card.users}
           </p>
         </div>
