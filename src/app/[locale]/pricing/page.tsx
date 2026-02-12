@@ -1,3 +1,4 @@
+import { ComponentProps } from "react";
 import { LayoutProps, PageProps } from "@/lib/@types/pageProps";
 import CTASection from "../ui/solutions/CTASection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -42,7 +43,7 @@ interface PricingCardData {
   period?: string;
   users: string;
   buttonText: string;
-  buttonHref: string;
+  buttonHref: ComponentProps<typeof NavigationLink>["href"];
   features: string[];
   isFreeTier?: boolean;
 }
@@ -52,39 +53,39 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
     <div className="bg-[#FFFFFF] rounded-2xl p-8 border border-[rgba(51,255,206,0.1)] transition-all duration-300 hover:scale-105 hover:border-[rgba(51,255,206,0.3)] relative flex flex-col justify-between h-full">
       <div>
         <h3 className="text-2xl font-bold text-black mb-3">{card.title}</h3>
-        <p className={`text-sm mb-8 leading-relaxed ${card.isFreeTier ? "text-gray-400" : "text-gray-100"}`}>
+        <p className="text-sm mb-8 leading-relaxed text-gray-500">
           {card.subtitle}
         </p>
 
         <div className="mb-8">
           <span className="text-5xl font-extrabold text-black">{card.price}</span>
           {card.period && (
-            <span className={`text-xl inline ${card.isFreeTier ? "text-gray-400" : "text-gray-200"}`}>{card.period}</span>
+            <span className="text-xl inline text-gray-400">{card.period}</span>
           )}
-          <p className={`text-sm mt-2 ${card.isFreeTier || !card.period ? "text-gray-500" : "text-gray-200"}`}>
+          <p className="text-sm mt-2 text-gray-500">
             {card.users}
           </p>
         </div>
 
         <NavigationLink href={card.buttonHref}>
           {card.isFreeTier ? (
-            <button className="w-full py-4 bg-transparent border-2 border-gray-600 text-white rounded-lg font-semibold text-base hover:border-[#33FFCE] hover:bg-[rgba(51,255,206,0.1)] transition-all">
+            <button className="w-full py-4 bg-transparent border-2 border-gray-300 text-gray-700 rounded-lg font-semibold text-base hover:border-[#33FFCE] hover:bg-[rgba(51,255,206,0.1)] transition-all">
               {card.buttonText}
             </button>
           ) : (
-            <button className="w-full py-4 bg-white text-gray-600 rounded-lg font-bold text-base shadow-xl hover:bg-green-50 hover:scale-105 transition-all">
+            <button className="w-full py-4 bg-[#33FFCE] text-gray-800 rounded-lg font-bold text-base shadow-xl hover:bg-[#2ee6b9] hover:scale-105 transition-all">
               {card.buttonText}
             </button>
           )}
         </NavigationLink>
 
-        <div className={`border-t my-6 ${card.isFreeTier ? "border-gray-700/50" : "border-white/20"}`} />
+        <div className="border-t my-6 border-gray-200" />
 
         <ul className="space-y-4 mt-6">
           {card.features.map((feature, idx) => (
             <li key={idx} className="flex items-start">
               <CheckIcon />
-              <span className={`text-sm leading-relaxed ${card.isFreeTier ? "text-gray-300" : "text-black/90"}`}>
+              <span className="text-sm leading-relaxed text-gray-600">
                 {feature}
               </span>
             </li>
