@@ -4,6 +4,7 @@ import CTASection from "../ui/solutions/CTASection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { NavigationLink } from "@/components/ui/links";
+import HubSpotPopupButton from "./HubSpotPopupButton";
 
 export async function generateMetadata(props: Omit<LayoutProps, "children">) {
   const { locale } = await props.params;
@@ -67,17 +68,15 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
           </p>
         </div>
 
-        <NavigationLink href={card.buttonHref}>
-          {card.isFreeTier ? (
-            <button className="w-full py-4 bg-transparent border-2 border-gray-300 text-gray-700 rounded-lg font-semibold text-base hover:border-[#33FFCE] hover:bg-[rgba(51,255,206,0.1)] transition-all">
-              {card.buttonText}
-            </button>
-          ) : (
+        {card.isFreeTier ? (
+          <HubSpotPopupButton buttonText={card.buttonText} />
+        ) : (
+          <NavigationLink href={card.buttonHref}>
             <button className="w-full py-4 bg-[#33FFCE] text-gray-800 rounded-lg font-bold text-base shadow-xl hover:bg-[#2ee6b9] hover:scale-105 transition-all">
               {card.buttonText}
             </button>
-          )}
-        </NavigationLink>
+          </NavigationLink>
+        )}
 
         <div className="border-t my-6 border-gray-200" />
 
