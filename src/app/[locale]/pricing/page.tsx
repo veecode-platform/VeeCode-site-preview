@@ -52,13 +52,13 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
   return (
     <div className="bg-[#FFFFFF] rounded-2xl p-8 border border-[rgba(51,255,206,0.1)] transition-all duration-300 hover:scale-105 hover:border-[rgba(51,255,206,0.3)] relative flex flex-col justify-between h-full">
       <div>
-        <h3 className="text-5xl font-bold text-black mb-3">{card.title}</h3>
+        <h3 className="text-4xl font-bold text-black mb-3">{card.title}</h3>
         <p className="text-sm mb-8 leading-relaxed text-gray-500">
           {card.subtitle}
         </p>
 
         <div className="mb-8">
-          <span className="text-2xl font-extrabold text-black">{card.price}</span>
+          <span className="text-3xl font-extrabold text-black">{card.price}</span>
           {card.period && (
             <span className="text-xl inline text-gray-400">{card.period}</span>
           )}
