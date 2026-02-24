@@ -230,7 +230,8 @@
       "yes-6": "✓ Avaliou Backstage mas \"muito trabalho manter\"",
       "no-title": "VeeCode IDP Self Hosted",
       "no-1": "✓ Time <5 devs",
-      "no-2": "✓ Infraestrutura 100% on-premise sem cloud"
+      "no-2": "✓ Infraestrutura 100% on-premise sem cloud",
+      "no-button": "Quero ter acesso"
     },
     "call-to-action": {
       "title": "VeeCode IDP: O Pilar Estratégico da Engenharia Moderna",

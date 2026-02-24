@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/animations";
+import HubSpotAccessButton from "./HubSpotAccessButton";
 
 interface IdealForProps {
   headline: string;
@@ -9,6 +10,7 @@ interface IdealForProps {
   yesItems: string[];
   noTitle: string;
   noItems: string[];
+  noButtonText: string;
 }
 
 const IdealFor: React.FC<IdealForProps> = ({
@@ -17,6 +19,7 @@ const IdealFor: React.FC<IdealForProps> = ({
   yesItems,
   noTitle,
   noItems,
+  noButtonText,
 }) => {
   return (
     <section className="bg-white py-[86px] self-stretch w-full px-[120px] max-md:px-5">
@@ -39,15 +42,16 @@ const IdealFor: React.FC<IdealForProps> = ({
           </div>
         </StaggerItem>
         <StaggerItem>
-          <div className="bg-green-50 rounded-2xl p-10">
+          <div className="bg-green-50 rounded-2xl p-10 flex flex-col">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">{noTitle}</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 mb-8">
               {noItems.map((item, index) => (
                 <li key={index} className="text-lg text-gray-700">
                   {item}
                 </li>
               ))}
             </ul>
+            <HubSpotAccessButton buttonText={noButtonText} />
           </div>
         </StaggerItem>
       </StaggerContainer>

@@ -230,7 +230,8 @@
       "yes-6": "✓ Evaluated Backstage but \"too much work to maintain\"",
       "no-title": "VeeCode IDP Self Hosted",
       "no-1": "✓ Team <5 devs",
-      "no-2": "✓ Infrastructure 100% on-premise without cloud"
+      "no-2": "✓ Infrastructure 100% on-premise without cloud",
+      "no-button": "I want access"
     },
     "call-to-action": {
       "title": "VeeCode IDP: The Strategic Pillar of Modern Engineering",

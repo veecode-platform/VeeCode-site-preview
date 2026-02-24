@@ -162,6 +162,7 @@ export default async function Home({ params }: PageProps) {
         yesItems={idealForYesItems}
         noTitle={t("ideal-for.no-title")}
         noItems={idealForNoItems}
+        noButtonText={t("ideal-for.no-button")}
       />
       <CallToAction />
       <Chatbot />
