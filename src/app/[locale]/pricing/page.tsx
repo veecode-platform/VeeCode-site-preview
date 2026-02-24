@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { NavigationLink } from "@/components/ui/links";
 import HubSpotPopupButton from "./HubSpotPopupButton";
+import HubSpotContactButton from "./HubSpotContactButton";
 
 export async function generateMetadata(props: Omit<LayoutProps, "children">) {
   const { locale } = await props.params;
@@ -47,6 +48,7 @@ interface PricingCardData {
   buttonHref: ComponentProps<typeof NavigationLink>["href"];
   features: string[];
   isFreeTier?: boolean;
+  isContactForm?: boolean;
 }
 
 function PricingCardItem({ card }: { card: PricingCardData }) {
@@ -70,6 +72,8 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
 
         {card.isFreeTier ? (
           <HubSpotPopupButton buttonText={card.buttonText} />
+        ) : card.isContactForm ? (
+          <HubSpotContactButton buttonText={card.buttonText} />
         ) : (
           <NavigationLink href={card.buttonHref}>
             <button className="w-full py-4 bg-[#33FFCE] text-gray-800 rounded-lg font-bold text-base shadow-xl hover:bg-[#2ee6b9] hover:scale-105 transition-all">
@@ -125,6 +129,7 @@ export default async function PricingPage({ params }: PageProps) {
       users: "de 5 a 10 usuários",
       buttonText: "Comece agora",
       buttonHref: "/contact-us",
+      isContactForm: true,
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -139,6 +144,7 @@ export default async function PricingPage({ params }: PageProps) {
       users: "de 11 a 50 usuários",
       buttonText: "Comece agora",
       buttonHref: "/contact-us",
+      isContactForm: true,
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -152,6 +158,7 @@ export default async function PricingPage({ params }: PageProps) {
       users: "50-200 usuários",
       buttonText: "Entre em contato",
       buttonHref: "/contact-us",
+      isContactForm: true,
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -165,6 +172,7 @@ export default async function PricingPage({ params }: PageProps) {
       users: "+200 usuários",
       buttonText: "Entre em contato",
       buttonHref: "/contact-us",
+      isContactForm: true,
       features: [
         "Suporte 24x7",
         "Suporte para plugins e templates",
