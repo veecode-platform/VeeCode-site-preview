@@ -380,19 +380,19 @@
     "title": "VeeCode Plugins",
     "description": "Access descriptions, guides, and installation instructions for our plugins",
     "github-workflows": {
-      "description": "The Github Workflows plugin provides an alternative to manually trigger GitHub workflows within your Backstage component."
+      "description": "The GitHub Workflows plugin lets you manually trigger and monitor GitHub Actions workflows directly from your Backstage component pages, with support for workflow parameters, real-time status updates, and detailed execution logs."
     },
     "gitlab-pipelines": {
-      "description": "The Gitlab Pipelines plugin integrates GitlabCi into your Backstage component in a simple way."
+      "description": "The Gitlab-pipelines plugin integrates GitLab CI directly into your Backstage component, allowing you to view pipeline statuses, trigger or cancel pipelines, and run individual jobs using configurable variables."
     },
     "kong-service-manager": {
-      "description": "The Kong Service Manager plugin provides information about the Kong service, a list of associated routes, and also allows you to manage plugins without leaving Backstage."
+      "description": "A Backstage frontend plugin that lets you manage Kong Gateway services, routes, and plugins directly from your software catalog."
     },
     "kubernetes-gpt-analyzer": {
-      "description": "The Kubernetes GPT Analyzer plugin uses artificial intelligence with the help of the k8s-operator to analyze and optimize your Kubernetes entities, improving cluster management and performance. It facilitates anomaly detection and suggests best practices."
+      "description": "The Kubernetes GPT Analyzer plugin uses AI to automatically detect and analyze errors in your Kubernetes components, providing issues and AI-generated suggestions for resolving them directly within Backstage."
     },
     "infracost": {
-      "description": "The Infracost plugin works together with Terraform and provides a graphical representation and cost estimates for your entity in the respective provider."
+      "description": "The Infracost plugin displays a graphical cost estimate of your infrastructure directly within Backstage, showing a summary and detailed breakdown of cost components per resource."
     },
     "action": {
       "contact": {

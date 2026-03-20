@@ -380,19 +380,19 @@
     "title": "Plugins VeeCode",
     "description": "Acesse descrições, guias e instruções de instalação para nossos plugins",
     "github-workflows": {
-      "description": "O plugin Github Workflows fornece uma alternativa para acionar manualmente os workflows do GitHub dentro do seu componente Backstage."
+      "description": "O plugin GitHub Workflows permite acionar manualmente e monitorar workflows do GitHub Actions diretamente nas páginas de componentes do Backstage, com suporte a parâmetros de workflow, atualizações de status em tempo real e logs detalhados de execução."
     },
     "gitlab-pipelines": {
-      "description": "O plugin Gitlab pipelines integra o GitlabCi ao seu componente Backstage de forma simples."
+      "description": "O plugin Gitlab-pipelines integra o GitLab CI diretamente ao seu componente no Backstage, permitindo visualizar o status dos pipelines, disparar ou cancelar execuções e rodar jobs individuais por meio de variáveis configuráveis."
     },
     "kong-service-manager": {
-      "description": "O plugin Kong Service Manager fornece informações sobre o serviço Kong, uma lista de rotas associadas e também oferece a possibilidade de manipular plugins sem sair do Backstage."
+      "description": "Um plugin frontend para o Backstage que permite gerenciar serviços, rotas e plugins do Kong Gateway diretamente do catálogo de software."
     },
     "kubernetes-gpt-analyzer": {
-      "description": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial com a ajuda do k8s-operator para analisar e otimizar suas entidades Kubernetes, melhorando a gestão e o desempenho do seu cluster. Facilita a detecção de anomalias e sugere melhores práticas."
+      "description": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial para detectar e analisar automaticamente erros nos seus componentes Kubernetes, fornecendo problemas e sugestões geradas por IA para resolvê-los diretamente no Backstage."
     },
     "infracost": {
-      "description": "O plugin Infracost funciona em conjunto com o terraform e fornece uma representação gráfica e estimativas de custo para sua entidade no respectivo provedor."
+      "description": "O plugin Infracost exibe uma estimativa gráfica dos custos da sua infraestrutura diretamente no Backstage, apresentando um resumo e detalhamento dos componentes de custo de cada recurso."
     },
     "action": {
       "contact": {
