@@ -64,6 +64,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+          additional_permissions: "Write"
           prompt: |
             Read the file readme.md in the current directory.
             Extract a concise 1-2 sentence description of what this
@@ -163,6 +164,9 @@ jobs:
               cp "$dir/readme-cache.md" "src/data/plugins/readmes/$ID.md"
             fi
           done
+
+          # Clean up artifacts directory before PR creation
+          rm -rf artifacts/
 
       - uses: peter-evans/create-pull-request@v6
         with:
