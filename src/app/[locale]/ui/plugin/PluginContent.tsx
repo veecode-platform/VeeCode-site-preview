@@ -3,8 +3,11 @@
 
 import React from "react";
 import { useRemark } from "react-remark";
+import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import remarkGemoji from "remark-gemoji";
+import { common } from "lowlight";
+import dockerfile from "highlight.js/lib/languages/dockerfile";
 import { IPlugin } from "@/lib/@types/plugin";
 import convertUrlToRaw from "@/lib/helpers/convertUrlToRaw";
 import { ScrollTop } from "@/components/ui/ScrollTop";
@@ -29,7 +32,10 @@ export const PluginContent: React.FC<PluginContentProps> = ({
   const [reactContent, setMarkdownSource] = useRemark({
     remarkPlugins: [remarkGemoji] as any,
     remarkToRehypeOptions: { allowDangerousHtml: true },
-    rehypePlugins: [rehypeSlug] as any,
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeHighlight, { detect: false, languages: { ...common, dockerfile } }],
+    ] as any,
     rehypeReactOptions: {
       components: {
         a: (props: any) => <LinkTag {...props} />,
