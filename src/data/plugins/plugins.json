@@ -1,132 +1,180 @@
 {
-  "pt": [
-    {
-      "id": "github-workflows",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "Github Workflows",
-      "path": "github-workflows",
-      "tags": ["CI-CD", "Github"],
-      "desc": "O plugin Github Workflows fornece uma alternativa para acionar manualmente os workflows do GitHub dentro do seu componente Backstage.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/github-workflows/plugins/github-workflows"
-    },
-    {
-      "id": "gitlab-pipelines",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_1.svg",
-      "title": "Gitlab Pipelines",
-      "path": "gitlab-pipelines",
-      "tags": ["CI-CD", "Gitlab"],
-      "desc": "O plugin Gitlab pipelines integra o GitlabCi ao seu componente Backstage de forma simples.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/gitlab-pipelines"
-    },
-    {
-      "id": "kong-service-manager",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_3.svg",
-      "title": "Kong Service Manager",
-      "path": "kong-service-manager",
-      "tags": ["Kong", "API Gateway", "Services"],
-      "desc": "O plugin Kong Service Manager fornece informações sobre o serviço Kong, uma lista de rotas associadas e também oferece a possibilidade de manipular plugins sem sair do Backstage.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/kong-tools/plugins/kong-service-manager"
-    },
-    {
-      "id": "kubernetes-gpt-analyzer",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_4.svg",
-      "title": "Kubernetes GPT Analyzer",
-      "path": "kubernetes-gpt-analyzer",
-      "tags": ["Kubernetes", "AI", "Monitoring"],
-      "desc": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial com a ajuda do k8s-operator para analisar e otimizar suas entidades Kubernetes, melhorando a gestão e o desempenho do seu cluster. Facilita a detecção de anomalias e sugere melhores práticas.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/kubernetes-gpt-analyzer"
-    },
-    {
-      "id": "infracost",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_5.svg",
-      "title": "Infracost",
-      "path": "infracost",
-      "tags": ["Finops", "Infracost", "Estimate"],
-      "desc": "O plugin Infracost funciona em conjunto com o terraform e fornece uma representação gráfica e estimativas de custo para sua entidade no respectivo provedor.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
-    },
-    {
-      "id": "about",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "About",
-      "path": "about",
-      "tags": ["DevPortal", "Info"],
-      "desc": "O plugin About exibe informações detalhadas sobre a entidade do catálogo, incluindo metadados, proprietários e dependências.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
-    },
-    {
-      "id": "ldap-auth",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "LDAP Auth",
-      "path": "ldap-auth",
-      "tags": ["Auth", "LDAP"],
-      "desc": "O plugin LDAP Auth fornece autenticação via LDAP para o Backstage, permitindo login corporativo integrado ao diretório LDAP da organização.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
-    }
-  ],
   "en": [
     {
+      "id": "infracost",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_5.svg",
+      "title": "Infracost",
+      "path": "infracost",
+      "tags": [
+        "Finops",
+        "Infracost",
+        "Estimate"
+      ],
+      "desc": "The Infracost plugin displays a graphical cost estimate of your infrastructure directly within Backstage, showing both a summary of all resources and a detailed breakdown of cost components per resource.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
+    },
+    {
       "id": "github-workflows",
       "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
       "title": "Github Workflows",
       "path": "github-workflows",
-      "tags": ["CI-CD", "Github"],
-      "desc": "The Github Workflows plugin provides an alternative to manually trigger GitHub workflows within your Backstage component.",
+      "tags": [
+        "CI-CD",
+        "Github"
+      ],
+      "desc": "The GitHub Workflows plugin lets you manually trigger and monitor GitHub Actions workflows directly from your Backstage component pages, with support for workflow parameters, real-time status updates, and detailed execution logs.",
       "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/github-workflows/plugins/github-workflows"
-    },
-    {
-      "id": "gitlab-pipelines",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_1.svg",
-      "title": "Gitlab Pipelines",
-      "path": "gitlab-pipelines",
-      "tags": ["CI-CD", "Gitlab"],
-      "desc": "The Gitlab Pipelines plugin integrates GitlabCi into your Backstage component in a simple way.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/gitlab-pipelines"
     },
     {
       "id": "kong-service-manager",
       "image": "https://veecode-platform.github.io/support/imgs/logo_3.svg",
       "title": "Kong Service Manager",
       "path": "kong-service-manager",
-      "tags": ["Kong", "API Gateway", "Services"],
-      "desc": "The Kong Service Manager plugin provides information about the Kong service, a list of associated routes, and also allows you to manage plugins without leaving Backstage.",
+      "tags": [
+        "Kong",
+        "API Gateway",
+        "Services"
+      ],
+      "desc": "A Backstage frontend plugin that lets you manage Kong Gateway services, routes, and plugins directly from your software catalog. From the entity page, you can view service details, configure plugins, and create or edit routes without leaving Backstage.",
       "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/kong-tools/plugins/kong-service-manager"
     },
     {
-      "id": "kubernetes-gpt-analyzer",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_4.svg",
-      "title": "Kubernetes GPT Analyzer",
-      "path": "kubernetes-gpt-analyzer",
-      "tags": ["Kubernetes", "AI", "Monitoring"],
-      "desc": "The Kubernetes GPT Analyzer plugin uses artificial intelligence with the help of k8s-operator to analyze and optimize your Kubernetes entities, improving cluster management and performance. It facilitates anomaly detection and suggests best practices.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/kubernetes-gpt-analyzer"
-    },
-    {
-      "id": "infracost",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_5.svg",
-      "title": "Infracost",
-      "path": "infracost",
-      "tags": ["Finops", "Infracost", "Estimate"],
-      "desc": "The Infracost plugin works together with Terraform and provides a graphical representation and cost estimates for your entity in the respective provider.",
-      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
-    },
-    {
-      "id": "about",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "About",
-      "path": "about",
-      "tags": ["DevPortal", "Info"],
-      "desc": "The About plugin displays detailed information about the catalog entity, including metadata, owners, and dependencies.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
+      "id": "gitlab-pipelines",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_1.svg",
+      "title": "Gitlab Pipelines",
+      "path": "gitlab-pipelines",
+      "tags": [
+        "CI-CD",
+        "Gitlab"
+      ],
+      "desc": "The Gitlab-pipelines plugin integrates GitLab CI directly into your Backstage component, allowing you to view pipeline statuses, trigger or cancel pipelines, and run individual jobs using configurable variables — all from within your developer portal.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/gitlab-pipelines"
     },
     {
       "id": "ldap-auth",
       "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
       "title": "LDAP Auth",
       "path": "ldap-auth",
-      "tags": ["Auth", "LDAP"],
-      "desc": "The LDAP Auth plugin provides LDAP authentication for Backstage, enabling corporate login integrated with the organization's LDAP directory.",
+      "tags": [
+        "Auth",
+        "LDAP"
+      ],
+      "desc": "This plugin replaces Backstage's default sign-in page with a customizable LDAP authentication form, enabling users to log in with their LDAP credentials while handling token management and session persistence automatically.",
       "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
+    },
+    {
+      "id": "about",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
+      "title": "About",
+      "path": "about",
+      "tags": [
+        "DevPortal",
+        "Info"
+      ],
+      "desc": "A Backstage frontend plugin that displays an \"About\" page with system information including OS details, Node.js version, resource utilization, and Backstage/DevPortal versions.",
+      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
+    },
+    {
+      "id": "kubernetes-gpt-analyzer",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_4.svg",
+      "title": "Kubernetes GPT Analyzer",
+      "path": "kubernetes-gpt-analyzer",
+      "tags": [
+        "Kubernetes",
+        "AI",
+        "Monitoring"
+      ],
+      "desc": "The Kubernetes GPT Analyzer plugin uses AI to automatically detect and analyze errors in your Kubernetes components, providing a list of issues and AI-generated suggestions for resolving them directly within Backstage.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/kubernetes-gpt-analyzer"
+    }
+  ],
+  "pt": [
+    {
+      "id": "infracost",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_5.svg",
+      "title": "Infracost",
+      "path": "infracost",
+      "tags": [
+        "Finops",
+        "Infracost",
+        "Estimate"
+      ],
+      "desc": "O plugin Infracost exibe uma estimativa gráfica dos custos da sua infraestrutura diretamente no Backstage, apresentando tanto um resumo geral de todos os recursos quanto um detalhamento dos componentes de custo de cada recurso.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
+    },
+    {
+      "id": "github-workflows",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
+      "title": "Github Workflows",
+      "path": "github-workflows",
+      "tags": [
+        "CI-CD",
+        "Github"
+      ],
+      "desc": "O plugin GitHub Workflows permite acionar manualmente e monitorar workflows do GitHub Actions diretamente nas páginas de componentes do Backstage, com suporte a parâmetros de workflow, atualizações de status em tempo real e logs detalhados de execução.",
+      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/github-workflows/plugins/github-workflows"
+    },
+    {
+      "id": "kong-service-manager",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_3.svg",
+      "title": "Kong Service Manager",
+      "path": "kong-service-manager",
+      "tags": [
+        "Kong",
+        "API Gateway",
+        "Services"
+      ],
+      "desc": "Um plugin frontend para o Backstage que permite gerenciar serviços, rotas e plugins do Kong Gateway diretamente do catálogo de software. Na página da entidade, você pode visualizar detalhes do serviço, configurar plugins e criar ou editar rotas sem sair do Backstage.",
+      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/kong-tools/plugins/kong-service-manager"
+    },
+    {
+      "id": "gitlab-pipelines",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_1.svg",
+      "title": "Gitlab Pipelines",
+      "path": "gitlab-pipelines",
+      "tags": [
+        "CI-CD",
+        "Gitlab"
+      ],
+      "desc": "O plugin Gitlab-pipelines integra o GitLab CI diretamente ao seu componente no Backstage, permitindo visualizar o status dos pipelines, disparar ou cancelar execuções e rodar jobs individuais por meio de variáveis configuráveis — tudo dentro do seu portal do desenvolvedor.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/gitlab-pipelines"
+    },
+    {
+      "id": "ldap-auth",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
+      "title": "LDAP Auth",
+      "path": "ldap-auth",
+      "tags": [
+        "Auth",
+        "LDAP"
+      ],
+      "desc": "Este plugin substitui a página de login padrão do Backstage por um formulário de autenticação LDAP personalizável, permitindo que os usuários façam login com suas credenciais LDAP enquanto o gerenciamento de tokens e a persistência de sessão são tratados automaticamente.",
+      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
+    },
+    {
+      "id": "about",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
+      "title": "About",
+      "path": "about",
+      "tags": [
+        "DevPortal",
+        "Info"
+      ],
+      "desc": "Um plugin frontend para o Backstage que exibe uma página \"Sobre\" com informações do sistema, incluindo detalhes do sistema operacional, versão do Node.js, utilização de recursos e versões do Backstage/DevPortal.",
+      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
+    },
+    {
+      "id": "kubernetes-gpt-analyzer",
+      "image": "https://veecode-platform.github.io/support/imgs/logo_4.svg",
+      "title": "Kubernetes GPT Analyzer",
+      "path": "kubernetes-gpt-analyzer",
+      "tags": [
+        "Kubernetes",
+        "AI",
+        "Monitoring"
+      ],
+      "desc": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial para detectar e analisar automaticamente erros nos seus componentes Kubernetes, fornecendo uma lista de problemas e sugestões geradas por IA para resolvê-los diretamente no Backstage.",
+      "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/kubernetes-gpt-analyzer"
     }
   ]
 }

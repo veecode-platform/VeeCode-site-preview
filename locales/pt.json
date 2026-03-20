@@ -380,25 +380,25 @@
     "title": "Plugins VeeCode",
     "description": "Acesse descrições, guias e instruções de instalação para nossos plugins",
     "github-workflows": {
-      "description": "O plugin Github Workflows fornece uma alternativa para acionar manualmente os workflows do GitHub dentro do seu componente Backstage."
+      "description": "O plugin GitHub Workflows permite acionar manualmente e monitorar workflows do GitHub Actions diretamente nas páginas de componentes do Backstage, com suporte a parâmetros de workflow, atualizações de status em tempo real e logs detalhados de execução."
     },
     "gitlab-pipelines": {
-      "description": "O plugin Gitlab pipelines integra o GitlabCi ao seu componente Backstage de forma simples."
+      "description": "O plugin Gitlab-pipelines integra o GitLab CI diretamente ao seu componente no Backstage, permitindo visualizar o status dos pipelines, disparar ou cancelar execuções e rodar jobs individuais por meio de variáveis configuráveis — tudo dentro do seu portal do desenvolvedor."
     },
     "kong-service-manager": {
-      "description": "O plugin Kong Service Manager fornece informações sobre o serviço Kong, uma lista de rotas associadas e também oferece a possibilidade de manipular plugins sem sair do Backstage."
+      "description": "Um plugin frontend para o Backstage que permite gerenciar serviços, rotas e plugins do Kong Gateway diretamente do catálogo de software. Na página da entidade, você pode visualizar detalhes do serviço, configurar plugins e criar ou editar rotas sem sair do Backstage."
     },
     "kubernetes-gpt-analyzer": {
-      "description": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial com a ajuda do k8s-operator para analisar e otimizar suas entidades Kubernetes, melhorando a gestão e o desempenho do seu cluster. Facilita a detecção de anomalias e sugere melhores práticas."
+      "description": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial para detectar e analisar automaticamente erros nos seus componentes Kubernetes, fornecendo uma lista de problemas e sugestões geradas por IA para resolvê-los diretamente no Backstage."
     },
     "infracost": {
-      "description": "O plugin Infracost funciona em conjunto com o terraform e fornece uma representação gráfica e estimativas de custo para sua entidade no respectivo provedor."
+      "description": "O plugin Infracost exibe uma estimativa gráfica dos custos da sua infraestrutura diretamente no Backstage, apresentando tanto um resumo geral de todos os recursos quanto um detalhamento dos componentes de custo de cada recurso."
     },
     "about": {
-      "description": "O plugin About exibe informações detalhadas sobre a entidade do catálogo, incluindo metadados, proprietários e dependências."
+      "description": "Um plugin frontend para o Backstage que exibe uma página \"Sobre\" com informações do sistema, incluindo detalhes do sistema operacional, versão do Node.js, utilização de recursos e versões do Backstage/DevPortal."
     },
     "ldap-auth": {
-      "description": "O plugin LDAP Auth fornece autenticação via LDAP para o Backstage, permitindo login corporativo integrado ao diretório LDAP da organização."
+      "description": "Este plugin substitui a página de login padrão do Backstage por um formulário de autenticação LDAP personalizável, permitindo que os usuários façam login com suas credenciais LDAP enquanto o gerenciamento de tokens e a persistência de sessão são tratados automaticamente."
     },
     "action": {
       "contact": {
