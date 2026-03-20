@@ -380,25 +380,34 @@
     "title": "Plugins VeeCode",
     "description": "Acesse descrições, guias e instruções de instalação para nossos plugins",
     "github-workflows": {
-      "description": "O plugin GitHub Workflows permite acionar manualmente e monitorar workflows do GitHub Actions diretamente nas páginas de componentes do Backstage, com suporte a parâmetros de workflow, atualizações de status em tempo real e logs detalhados de execução."
+      "description": "O plugin Github Workflows permite visualizar, disparar e monitorar workflows do GitHub Actions diretamente nas páginas de componentes do Backstage, com suporte a parâmetros de workflow, logs de execução e atualizações de status em tempo real."
     },
     "gitlab-pipelines": {
-      "description": "O plugin Gitlab-pipelines integra o GitLab CI diretamente ao seu componente no Backstage, permitindo visualizar o status dos pipelines, disparar ou cancelar execuções e rodar jobs individuais por meio de variáveis configuráveis."
+      "description": "O plugin Gitlab-pipelines integra o GitLab CI diretamente ao seu componente no Backstage, permitindo visualizar o status dos pipelines, disparar ou cancelar execuções e rodar jobs individuais — tudo dentro do seu portal de desenvolvedores."
     },
     "kong-service-manager": {
-      "description": "Um plugin frontend para o Backstage que permite gerenciar serviços, rotas e plugins do Kong Gateway diretamente do catálogo de software."
+      "description": "Um plugin frontend para o Backstage que permite gerenciar serviços, rotas e plugins do Kong Gateway diretamente pelo catálogo de software. Você pode visualizar detalhes dos serviços, configurar plugins e criar ou editar rotas — tudo sem sair do Backstage."
     },
     "kubernetes-gpt-analyzer": {
-      "description": "O plugin Kubernetes GPT Analyzer utiliza inteligência artificial para detectar e analisar automaticamente erros nos seus componentes Kubernetes, fornecendo problemas e sugestões geradas por IA para resolvê-los diretamente no Backstage."
+      "description": "O plugin Kubernetes GPT Analyzer utiliza IA para detectar e analisar automaticamente erros nos seus componentes Kubernetes, fornecendo uma lista de problemas junto com sugestões geradas por IA para resolvê-los."
     },
     "infracost": {
-      "description": "O plugin Infracost exibe uma estimativa gráfica dos custos da sua infraestrutura diretamente no Backstage, apresentando um resumo e detalhamento dos componentes de custo de cada recurso."
+      "description": "O plugin Infracost exibe uma estimativa gráfica de custos da sua infraestrutura diretamente no Backstage, apresentando tanto uma visão geral resumida de todos os recursos quanto um detalhamento dos componentes de custo de cada recurso."
     },
     "action": {
       "contact": {
         "title": "Precisa de ajuda para decidir?",
         "buttonLabel": "Contato de Vendas"
       }
+    },
+    "ldap-auth": {
+      "description": "Este plugin fornece uma página de login LDAP personalizada para o Backstage, substituindo a tela de autenticação padrão por um formulário em Material-UI que gerencia a validação de credenciais, o controle de tokens e a persistência de sessão integrados ao diretório LDAP da sua organização."
+    },
+    "scaffolder-backend-module-kong": {
+      "description": "Um módulo backend de scaffolder para o Backstage que automatiza a configuração do Kong Gateway, fornecendo ações para converter especificações OpenAPI em configurações declarativas do Kong, sincronizá-las com uma instância do Kong Gateway e testar a conectividade — tudo dentro dos Software Templates do Backstage."
+    },
+    "kubernetes-backend-module-getsecret": {
+      "description": "Um módulo backend para o Backstage que estende o plugin do Kubernetes com estratégias de autenticação flexíveis, permitindo que tokens de service account sejam obtidos em tempo de execução a partir de secrets do Kubernetes, variáveis de ambiente ou arquivos. Ele também permite que clusters Kubernetes sejam totalmente definidos pelo catálogo do Backstage, eliminando a necessidade de modificar o app-config para adicionar novos clusters."
     }
   },
   "comparison": {
