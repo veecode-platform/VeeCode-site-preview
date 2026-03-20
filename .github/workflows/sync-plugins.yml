@@ -25,6 +25,9 @@ jobs:
   process-plugin:
     needs: prepare
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     strategy:
       matrix:
         plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
@@ -60,14 +63,13 @@ jobs:
       - name: Generate description
         uses: anthropics/claude-code-action@v1
         with:
-          claude_access_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
           prompt: |
             Read the file readme.md in the current directory.
             Extract a concise 1-2 sentence description of what this
             Backstage plugin does, from the user's perspective.
             Write ONLY the description text to description.txt.
             If readme.md is empty, write "No description available."
-          allowed_tools: "Read,Write"
 
       - name: Build artifact
         env:
