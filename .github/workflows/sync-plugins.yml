@@ -69,8 +69,13 @@ jobs:
             Read the file readme.md in the current directory.
             Extract a concise 1-2 sentence description of what this
             Backstage plugin does, from the user's perspective.
-            Write ONLY the description text to description.txt.
-            If readme.md is empty, write "No description available."
+
+            Write TWO files:
+            1. description-en.txt — the description in English
+            2. description-pt.txt — the same description translated to Brazilian Portuguese (pt-BR)
+
+            Each file should contain ONLY the description text, nothing else.
+            If readme.md is empty, write "No description available." in both files.
 
       - name: Build artifact
         env:
@@ -82,7 +87,8 @@ jobs:
           PLUGIN_NPM: ${{ matrix.plugin.npm }}
           PLUGIN_TAGS: ${{ toJson(matrix.plugin.tags) }}
         run: |
-          DESC=$(cat description.txt 2>/dev/null || echo "No description available.")
+          DESC_EN=$(cat description-en.txt 2>/dev/null || echo "No description available.")
+          DESC_PT=$(cat description-pt.txt 2>/dev/null || echo "No description available.")
           SOURCE_TYPE="${PLUGIN_SOURCE%%:*}"
 
           # Pre-cache README for non-github sources
@@ -104,11 +110,12 @@ jobs:
             --arg path "$PLUGIN_PATH" \
             --arg image "$PLUGIN_IMAGE" \
             --arg url "$URL" \
-            --arg desc "$DESC" \
+            --arg desc_en "$DESC_EN" \
+            --arg desc_pt "$DESC_PT" \
             --arg npm "$PLUGIN_NPM" \
             --argjson tags "$PLUGIN_TAGS" \
             '{id:$id,title:$title,path:$path,image:$image,
-              url:$url,desc:$desc,npm:$npm,tags:$tags}' \
+              url:$url,desc_en:$desc_en,desc_pt:$desc_pt,npm:$npm,tags:$tags}' \
             > plugin-data.json
 
       - uses: actions/upload-artifact@v4
@@ -137,23 +144,25 @@ jobs:
           # Merge plugin artifacts
           PLUGINS=$(find artifacts/ -name 'plugin-data.json' -exec cat {} \; | jq -s '.')
 
-          # plugins.json — same content for en and pt
+          # plugins.json — EN descriptions for en, PT descriptions for pt
           echo "$PLUGINS" | jq '{
             en: [.[] | {id: .id, image: .image, title: .title,
-                        path: .path, tags: .tags, desc: .desc, url: .url}],
+                        path: .path, tags: .tags, desc: .desc_en, url: .url}],
             pt: [.[] | {id: .id, image: .image, title: .title,
-                        path: .path, tags: .tags, desc: .desc, url: .url}]
+                        path: .path, tags: .tags, desc: .desc_pt, url: .url}]
           }' > src/data/plugins/plugins.json
 
-          # Patch locale files
+          # Patch locale files — each locale gets its own language
           echo "$PLUGINS" | jq -c '.[]' | while IFS= read -r row; do
             ID=$(echo "$row" | jq -r '.id')
-            DESC=$(echo "$row" | jq -r '.desc')
-            for LOCALE in en pt; do
-              jq --arg id "$ID" --arg desc "$DESC" \
-                '.resources[$id] = {description: $desc}' \
-                locales/$LOCALE.json > tmp.json && mv tmp.json locales/$LOCALE.json
-            done
+            DESC_EN=$(echo "$row" | jq -r '.desc_en')
+            DESC_PT=$(echo "$row" | jq -r '.desc_pt')
+            jq --arg id "$ID" --arg desc "$DESC_EN" \
+              '.resources[$id] = {description: $desc}' \
+              locales/en.json > tmp.json && mv tmp.json locales/en.json
+            jq --arg id "$ID" --arg desc "$DESC_PT" \
+              '.resources[$id] = {description: $desc}' \
+              locales/pt.json > tmp.json && mv tmp.json locales/pt.json
           done
 
           # Pre-cache READMEs for non-github plugins
