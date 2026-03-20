@@ -60,7 +60,7 @@ jobs:
       - name: Generate description
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_access_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
           prompt: |
             Read the file readme.md in the current directory.
             Extract a concise 1-2 sentence description of what this
