@@ -145,7 +145,7 @@ jobs:
           }' > src/data/plugins/plugins.json
 
           # Patch locale files
-          for row in $(echo "$PLUGINS" | jq -c '.[]'); do
+          echo "$PLUGINS" | jq -c '.[]' | while IFS= read -r row; do
             ID=$(echo "$row" | jq -r '.id')
             DESC=$(echo "$row" | jq -r '.desc')
             for LOCALE in en pt; do
