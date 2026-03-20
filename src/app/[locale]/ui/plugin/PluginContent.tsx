@@ -21,11 +21,18 @@ const LinkTag = ({ href, children }: { href: string; children: any }) => {
   return <a href={href}>{label}</a>;
 };
 
+function sanitizeMarkdown(md: string): string {
+  // Escape ${{ }} template expressions that break react-remark
+  return md.replace(/\$\{\{/g, "\\${{");
+}
+
 export const PluginContent: React.FC<PluginContentProps> = ({
   pluginData,
   readmeContent,
 }) => {
-  const [content, setContent] = React.useState(readmeContent ?? "");
+  const [content, setContent] = React.useState(
+    readmeContent ? sanitizeMarkdown(readmeContent) : ""
+  );
 
   React.useEffect(() => {
     if (readmeContent) return;
@@ -35,7 +42,7 @@ export const PluginContent: React.FC<PluginContentProps> = ({
       fetch(rawUrl)
         .then((response) => response.text())
         .then((data) => {
-          setContent(data);
+          setContent(sanitizeMarkdown(data));
         })
         .catch((error) => {
           console.error("Error:", error);
