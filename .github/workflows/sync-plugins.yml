@@ -1,0 +1,176 @@
+name: Sync Plugin Docs
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  # ── Job 1: Parse catalog → matrix ──
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.parse.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse catalog.yaml
+        id: parse
+        run: |
+          MATRIX=$(yq -o=json '.plugins[] | select(.visible == true)' \
+            src/data/plugins/catalog.yaml | jq -sc '.')
+          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+
+  # ── Job 2: 1 job por plugin, em paralelo ──
+  process-plugin:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      max-parallel: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch README
+        env:
+          PLUGIN_SOURCE: ${{ matrix.plugin.source }}
+        run: |
+          TYPE="${PLUGIN_SOURCE%%:*}"
+          REF="${PLUGIN_SOURCE#*:}"
+
+          case "$TYPE" in
+            github)
+              RAW_URL="https://raw.githubusercontent.com/$(echo "$REF" | \
+                sed 's|/tree/|/|')/README.md"
+              curl -sf "$RAW_URL" > readme.md || echo "" > readme.md
+              ;;
+            npm)
+              ENCODED=$(echo "$REF" | sed 's|/|%2F|g')
+              curl -sf "https://registry.npmjs.org/$ENCODED" | \
+                jq -r '.readme // ""' > readme.md
+              ;;
+            oci)
+              DESC=$(skopeo inspect "docker://$REF" 2>/dev/null | \
+                jq -r '.Labels["org.opencontainers.image.description"] // ""')
+              echo "$DESC" > readme.md
+              ;;
+          esac
+
+      - name: Generate description
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Read the file readme.md in the current directory.
+            Extract a concise 1-2 sentence description of what this
+            Backstage plugin does, from the user's perspective.
+            Write ONLY the description text to description.txt.
+            If readme.md is empty, write "No description available."
+          allowed_tools: "Read,Write"
+
+      - name: Build artifact
+        env:
+          PLUGIN_SOURCE: ${{ matrix.plugin.source }}
+          PLUGIN_ID: ${{ matrix.plugin.id }}
+          PLUGIN_TITLE: ${{ matrix.plugin.title }}
+          PLUGIN_PATH: ${{ matrix.plugin.path }}
+          PLUGIN_IMAGE: ${{ matrix.plugin.image }}
+          PLUGIN_NPM: ${{ matrix.plugin.npm }}
+          PLUGIN_TAGS: ${{ toJson(matrix.plugin.tags) }}
+        run: |
+          DESC=$(cat description.txt 2>/dev/null || echo "No description available.")
+          SOURCE_TYPE="${PLUGIN_SOURCE%%:*}"
+
+          # Pre-cache README for non-github sources
+          if [ "$SOURCE_TYPE" != "github" ] && [ -s readme.md ]; then
+            cp readme.md readme-cache.md
+          fi
+
+          # Convert github source to usable URL
+          if [ "$SOURCE_TYPE" = "github" ]; then
+            REF="${PLUGIN_SOURCE#github:}"
+            URL="https://github.com/$REF"
+          else
+            URL=""
+          fi
+
+          jq -n \
+            --arg id "$PLUGIN_ID" \
+            --arg title "$PLUGIN_TITLE" \
+            --arg path "$PLUGIN_PATH" \
+            --arg image "$PLUGIN_IMAGE" \
+            --arg url "$URL" \
+            --arg desc "$DESC" \
+            --arg npm "$PLUGIN_NPM" \
+            --argjson tags "$PLUGIN_TAGS" \
+            '{id:$id,title:$title,path:$path,image:$image,
+              url:$url,desc:$desc,npm:$npm,tags:$tags}' \
+            > plugin-data.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugin-${{ matrix.plugin.id }}
+          path: |
+            plugin-data.json
+            readme-cache.md
+
+  # ── Job 3: Merge → plugins.json + locales + readmes → PR ──
+  merge:
+    needs: process-plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          pattern: plugin-*
+
+      - name: Generate plugins.json and patch locales
+        run: |
+          # Merge plugin artifacts
+          PLUGINS=$(find artifacts/ -name 'plugin-data.json' -exec cat {} \; | jq -s '.')
+
+          # plugins.json — same content for en and pt
+          echo "$PLUGINS" | jq '{
+            en: [.[] | {id: .id, image: .image, title: .title,
+                        path: .path, tags: .tags, desc: .desc, url: .url}],
+            pt: [.[] | {id: .id, image: .image, title: .title,
+                        path: .path, tags: .tags, desc: .desc, url: .url}]
+          }' > src/data/plugins/plugins.json
+
+          # Patch locale files
+          for row in $(echo "$PLUGINS" | jq -c '.[]'); do
+            ID=$(echo "$row" | jq -r '.id')
+            DESC=$(echo "$row" | jq -r '.desc')
+            for LOCALE in en pt; do
+              jq --arg id "$ID" --arg desc "$DESC" \
+                '.resources[$id] = {description: $desc}' \
+                locales/$LOCALE.json > tmp.json && mv tmp.json locales/$LOCALE.json
+            done
+          done
+
+          # Pre-cache READMEs for non-github plugins
+          mkdir -p src/data/plugins/readmes
+          for dir in artifacts/plugin-*/; do
+            if [ -f "$dir/readme-cache.md" ]; then
+              ID=$(jq -r '.id' "$dir/plugin-data.json")
+              cp "$dir/readme-cache.md" "src/data/plugins/readmes/$ID.md"
+            fi
+          done
+
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/sync-plugin-docs
+          delete-branch: true
+          title: 'chore: sync plugin documentation'
+          body: |
+            Automated plugin docs sync via claude-code-action matrix.
+            Each plugin README processed in parallel.
+          commit-message: 'chore: sync plugin docs from READMEs'
+          base: develop
+          labels: automated,documentation

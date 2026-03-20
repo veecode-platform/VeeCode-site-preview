@@ -13,6 +13,7 @@ import style from "./styles.module.css";
 
 export interface PluginContentProps {
   pluginData: IPlugin;
+  readmeContent?: string;
 }
 
 const LinkTag = ({ href, children }: { href: string; children: any }) => {
@@ -20,10 +21,15 @@ const LinkTag = ({ href, children }: { href: string; children: any }) => {
   return <a href={href}>{label}</a>;
 };
 
-export const PluginContent: React.FC<PluginContentProps> = ({ pluginData }) => {
-  const [content, setContent] = React.useState("");
+export const PluginContent: React.FC<PluginContentProps> = ({
+  pluginData,
+  readmeContent,
+}) => {
+  const [content, setContent] = React.useState(readmeContent ?? "");
 
   React.useEffect(() => {
+    if (readmeContent) return;
+
     const rawUrl = convertUrlToRaw(pluginData!.url);
     if (rawUrl) {
       fetch(rawUrl)
@@ -35,7 +41,7 @@ export const PluginContent: React.FC<PluginContentProps> = ({ pluginData }) => {
           console.error("Error:", error);
         });
     }
-  }, [pluginData]);
+  }, [pluginData, readmeContent]);
 
   return (
     <section className={`${style.root} w-full`}>

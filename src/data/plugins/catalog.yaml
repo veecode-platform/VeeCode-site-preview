@@ -1,0 +1,109 @@
+plugins:
+  # ──────────────────────────────────────────────
+  # devportal-plugins (migrados)
+  # ──────────────────────────────────────────────
+  - id: github-workflows
+    title: "Github Workflows"
+    path: github-workflows
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/github-workflows/plugins/github-workflows"
+    npm: "@veecode-platform/backstage-plugin-github-workflows"
+    image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+    tags: [CI-CD, Github]
+
+  - id: kong-service-manager
+    title: "Kong Service Manager"
+    path: kong-service-manager
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/kong-tools/plugins/kong-service-manager"
+    npm: "@veecode-platform/backstage-plugin-kong-service-manager"
+    image: "https://veecode-platform.github.io/support/imgs/logo_3.svg"
+    tags: [Kong, API Gateway, Services]
+
+  - id: about
+    title: "About"
+    path: about
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
+    npm: "@veecode-platform/backstage-plugin-about"
+    image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+    tags: [DevPortal, Info]
+
+  - id: ldap-auth
+    title: "LDAP Auth"
+    path: ldap-auth
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
+    npm: "@veecode-platform/backstage-plugin-ldap-auth"
+    image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+    tags: [Auth, LDAP]
+
+  - id: veecode-homepage
+    title: "VeeCode Homepage"
+    path: veecode-homepage
+    visible: false  # internal UI plugin
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/homepage/plugins/veecode-homepage"
+    npm: "@veecode-platform/plugin-veecode-homepage"
+    image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+    tags: [DevPortal, Homepage]
+
+  - id: veecode-global-header
+    title: "VeeCode Global Header"
+    path: veecode-global-header
+    visible: false  # internal UI plugin
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/global-header/plugins/veecode-global-header"
+    npm: "@veecode-platform/plugin-veecode-global-header"
+    image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+    tags: [DevPortal, UI]
+
+  # ──────────────────────────────────────────────
+  # platform-backstage-plugins (legado, ainda nao migrados)
+  # ──────────────────────────────────────────────
+  - id: gitlab-pipelines
+    title: "Gitlab Pipelines"
+    path: gitlab-pipelines
+    visible: true
+    source: "github:veecode-platform/platform-backstage-plugins/tree/master/plugins/gitlab-pipelines"
+    npm: "@veecode-platform/backstage-plugin-gitlab-pipelines"
+    image: "https://veecode-platform.github.io/support/imgs/logo_1.svg"
+    tags: [CI-CD, Gitlab]
+
+  - id: kubernetes-gpt-analyzer
+    title: "Kubernetes GPT Analyzer"
+    path: kubernetes-gpt-analyzer
+    visible: true
+    source: "github:veecode-platform/platform-backstage-plugins/tree/master/plugins/kubernetes-gpt-analyzer"
+    npm: "@veecode-platform/backstage-plugin-kubernetes-gpt-analyzer"
+    image: "https://veecode-platform.github.io/support/imgs/logo_4.svg"
+    tags: [Kubernetes, AI, Monitoring]
+
+  - id: infracost
+    title: "Infracost"
+    path: infracost
+    visible: true
+    source: "github:veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
+    npm: "@veecode-platform/backstage-plugin-infracost"
+    image: "https://veecode-platform.github.io/support/imgs/logo_5.svg"
+    tags: [Finops, Infracost, Estimate]
+
+  # ──────────────────────────────────────────────
+  # Exemplo: plugin de terceiro via npm
+  # ──────────────────────────────────────────────
+  # - id: techdocs
+  #   title: "TechDocs"
+  #   path: techdocs
+  #   visible: true
+  #   source: "npm:@backstage/plugin-techdocs"
+  #   image: "https://backstage.io/logo.svg"
+  #   tags: [Docs, Backstage]
+
+  # ──────────────────────────────────────────────
+  # Exemplo: plugin via OCI registry
+  # ──────────────────────────────────────────────
+  # - id: custom-oci
+  #   title: "Custom OCI Plugin"
+  #   path: custom-oci
+  #   visible: true
+  #   source: "oci:quay.io/veecode-platform/backstage-plugin-custom"
+  #   image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
+  #   tags: [Custom]

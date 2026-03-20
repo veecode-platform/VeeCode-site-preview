@@ -1,5 +1,5 @@
 export interface IPlugin {
-  id: number;
+  id: string;
   image: string;
   title: string;
   path: string;
