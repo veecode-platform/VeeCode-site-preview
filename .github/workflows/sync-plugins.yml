@@ -54,9 +54,20 @@ jobs:
                 jq -r '.readme // ""' > readme.md
               ;;
             oci)
-              DESC=$(skopeo inspect "docker://$REF" 2>/dev/null | \
-                jq -r '.Labels["org.opencontainers.image.description"] // ""')
-              echo "$DESC" > readme.md
+              # OCI images are npm packages in tar.gz layers — extract README from inside
+              REGISTRY="${REF%%/*}"
+              IMAGE="${REF#*/}"
+              MANIFEST=$(curl -sf -H "Accept: application/vnd.oci.image.manifest.v1+json" \
+                "https://$REGISTRY/v2/$IMAGE/manifests/latest" 2>/dev/null || \
+                curl -sf -H "Accept: application/vnd.oci.image.manifest.v1+json" \
+                "https://$REGISTRY/v2/$IMAGE/manifests/$(curl -sf "https://$REGISTRY/v2/$IMAGE/tags/list" | jq -r '.tags[0]')" 2>/dev/null)
+              if [ -n "$MANIFEST" ]; then
+                LAYER=$(echo "$MANIFEST" | jq -r '.layers[0].digest')
+                curl -sfL "https://$REGISTRY/v2/$IMAGE/blobs/$LAYER" | \
+                  tar -xzf - --wildcards "*/README.md" -O > readme.md 2>/dev/null || echo "" > readme.md
+              else
+                echo "" > readme.md
+              fi
               ;;
           esac
 

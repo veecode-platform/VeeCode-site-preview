@@ -32,11 +32,29 @@ plugins:
   - id: ldap-auth
     title: "LDAP Auth"
     path: ldap-auth
-    visible: false  # not relevant for public listing yet
+    visible: true
     source: "github:veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
     npm: "@veecode-platform/backstage-plugin-ldap-auth"
     image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
     tags: [Auth, LDAP]
+
+  - id: scaffolder-backend-module-kong
+    title: "Kong Scaffolder Actions"
+    path: scaffolder-backend-module-kong
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/kong-tools/plugins/scaffolder-backend-module-kong"
+    npm: "@veecode-platform/plugin-scaffolder-backend-module-kong"
+    image: "https://veecode-platform.github.io/support/imgs/logo_3.svg"
+    tags: [Kong, Scaffolder, Automation]
+
+  - id: kubernetes-backend-module-getsecret
+    title: "Kubernetes GetSecret"
+    path: kubernetes-backend-module-getsecret
+    visible: true
+    source: "github:veecode-platform/devportal-plugins/tree/main/workspace/kubernetes/plugins/kubernetes-backend-module-getsecret"
+    npm: "@veecode-platform/plugin-kubernetes-backend-module-getsecret"
+    image: "https://veecode-platform.github.io/support/imgs/logo_4.svg"
+    tags: [Kubernetes, Security, Secrets]
 
   - id: veecode-homepage
     title: "VeeCode Homepage"
