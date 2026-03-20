@@ -25,6 +25,9 @@ jobs:
   process-plugin:
     needs: prepare
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     strategy:
       matrix:
         plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
@@ -57,19 +60,17 @@ jobs:
               ;;
           esac
 
-      - name: Extract description
-        run: |
-          if [ ! -s readme.md ]; then
-            echo "No description available." > description.txt
-          else
-            # Skip title lines and blank lines, take first paragraph
-            DESC=$(sed '/^#/d; /^$/d; /^\[/d; /^!/d; /^---/d; /^|/d' readme.md | head -3 | tr '\n' ' ' | sed 's/  */ /g; s/^ *//; s/ *$//')
-            if [ -z "$DESC" ]; then
-              echo "No description available." > description.txt
-            else
-              echo "$DESC" > description.txt
-            fi
-          fi
+      - name: Generate description
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+          claude_args: "--model claude-sonnet-4-6 --allowedTools Read,Write"
+          prompt: |
+            Read the file readme.md in the current directory.
+            Extract a concise 1-2 sentence description of what this
+            Backstage plugin does, from the user's perspective.
+            Write ONLY the description text to description.txt.
+            If readme.md is empty, write "No description available."
 
       - name: Build artifact
         env:
