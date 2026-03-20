@@ -44,24 +44,6 @@
       "tags": ["Finops", "Infracost", "Estimate"],
       "desc": "O plugin Infracost funciona em conjunto com o terraform e fornece uma representação gráfica e estimativas de custo para sua entidade no respectivo provedor.",
       "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
-    },
-    {
-      "id": "about",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "About",
-      "path": "about",
-      "tags": ["DevPortal", "Info"],
-      "desc": "O plugin About exibe informações detalhadas sobre a entidade do catálogo, incluindo metadados, proprietários e dependências.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
-    },
-    {
-      "id": "ldap-auth",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "LDAP Auth",
-      "path": "ldap-auth",
-      "tags": ["Auth", "LDAP"],
-      "desc": "O plugin LDAP Auth fornece autenticação via LDAP para o Backstage, permitindo login corporativo integrado ao diretório LDAP da organização.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
     }
   ],
   "en": [
@@ -109,24 +91,6 @@
       "tags": ["Finops", "Infracost", "Estimate"],
       "desc": "The Infracost plugin works together with Terraform and provides a graphical representation and cost estimates for your entity in the respective provider.",
       "url": "https://github.com/veecode-platform/platform-backstage-plugins/tree/master/plugins/infracost"
-    },
-    {
-      "id": "about",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "About",
-      "path": "about",
-      "tags": ["DevPortal", "Info"],
-      "desc": "The About plugin displays detailed information about the catalog entity, including metadata, owners, and dependencies.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
-    },
-    {
-      "id": "ldap-auth",
-      "image": "https://veecode-platform.github.io/support/imgs/logo_2.svg",
-      "title": "LDAP Auth",
-      "path": "ldap-auth",
-      "tags": ["Auth", "LDAP"],
-      "desc": "The LDAP Auth plugin provides LDAP authentication for Backstage, enabling corporate login integrated with the organization's LDAP directory.",
-      "url": "https://github.com/veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
     }
   ]
 }

@@ -23,7 +23,7 @@ plugins:
   - id: about
     title: "About"
     path: about
-    visible: true
+    visible: false  # not relevant for public listing yet
     source: "github:veecode-platform/devportal-plugins/tree/main/workspace/about/plugins/about"
     npm: "@veecode-platform/backstage-plugin-about"
     image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"
@@ -32,7 +32,7 @@ plugins:
   - id: ldap-auth
     title: "LDAP Auth"
     path: ldap-auth
-    visible: true
+    visible: false  # not relevant for public listing yet
     source: "github:veecode-platform/devportal-plugins/tree/main/workspace/ldap-auth/plugins/ldap-auth"
     npm: "@veecode-platform/backstage-plugin-ldap-auth"
     image: "https://veecode-platform.github.io/support/imgs/logo_2.svg"

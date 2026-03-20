@@ -394,12 +394,6 @@
     "infracost": {
       "description": "O plugin Infracost funciona em conjunto com o terraform e fornece uma representação gráfica e estimativas de custo para sua entidade no respectivo provedor."
     },
-    "about": {
-      "description": "O plugin About exibe informações detalhadas sobre a entidade do catálogo, incluindo metadados, proprietários e dependências."
-    },
-    "ldap-auth": {
-      "description": "O plugin LDAP Auth fornece autenticação via LDAP para o Backstage, permitindo login corporativo integrado ao diretório LDAP da organização."
-    },
     "action": {
       "contact": {
         "title": "Precisa de ajuda para decidir?",
