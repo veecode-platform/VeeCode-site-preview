@@ -21,7 +21,7 @@ jobs:
             src/data/plugins/catalog.yaml | jq -sc '.')
           echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
 
-  # ── Job 2: 1 job por plugin, em paralelo ──
+  # ── Job 2: 1 job per plugin, in parallel ──
   process-plugin:
     needs: prepare
     runs-on: ubuntu-latest
@@ -54,7 +54,6 @@ jobs:
                 jq -r '.readme // ""' > readme.md
               ;;
             oci)
-              # OCI images are npm packages in tar.gz layers — extract README from inside
               REGISTRY="${REF%%/*}"
               IMAGE="${REF#*/}"
               MANIFEST=$(curl -sf -H "Accept: application/vnd.oci.image.manifest.v1+json" \
@@ -71,22 +70,107 @@ jobs:
               ;;
           esac
 
+      - name: Prepare context
+        env:
+          PLUGIN_ID: ${{ matrix.plugin.id }}
+        run: |
+          if [ -f src/data/plugins/plugins.json ]; then
+            jq -r --arg id "$PLUGIN_ID" '.en[] | select(.id == $id) | .desc // ""' \
+              src/data/plugins/plugins.json > existing-en.txt 2>/dev/null || echo "" > existing-en.txt
+            jq -r --arg id "$PLUGIN_ID" '.pt[] | select(.id == $id) | .desc // ""' \
+              src/data/plugins/plugins.json > existing-pt.txt 2>/dev/null || echo "" > existing-pt.txt
+          else
+            echo "" > existing-en.txt
+            echo "" > existing-pt.txt
+          fi
+
       - name: Generate description
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
           claude_args: "--model claude-sonnet-4-6 --allowedTools Read,Write"
           prompt: |
-            Read the file readme.md in the current directory.
-            Extract a concise 1-2 sentence description of what this
-            Backstage plugin does, from the user's perspective.
+            You are a technical copywriter for the VeeCode Platform developer portal
+            (platform.vee.codes). Plugin descriptions appear on the catalog page at
+            /resources/ — they are the first text a potential customer reads when
+            evaluating Backstage plugins to adopt.
 
-            Write TWO files:
-            1. description-en.txt — the description in English
-            2. description-pt.txt — the same description translated to Brazilian Portuguese (pt-BR)
+            ## Input
 
-            Each file should contain ONLY the description text, nothing else.
-            If readme.md is empty, write "No description available." in both files.
+            Read these files:
+            - readme.md — the plugin's README documentation
+            - existing-en.txt — current English description on the site (may be empty)
+            - existing-pt.txt — current Brazilian Portuguese description (may be empty)
+
+            ## Step 1: Evaluate Existing Descriptions
+
+            If existing descriptions are non-empty, compare them against the README.
+
+            PRESERVE the existing descriptions UNCHANGED if they:
+            - Accurately describe the plugin's core functionality
+            - Mention specific features documented in the README
+            - Are concise (1-2 sentences) and well-written
+
+            Only UPDATE if one of these conditions is true:
+            - The existing description says "No description available." or is empty
+            - The existing description contains factual inaccuracies
+            - The README documents significant new capabilities completely absent
+              from the existing description
+
+            All other cases are cases to PRESERVE — including when the only
+            possible changes would be synonym swaps ("view" ↔ "see"), stylistic
+            rewording ("all from within" ↔ "directly from"), or structural
+            changes that carry the same information.
+
+            ## Step 2: Write Descriptions (only if update is needed or new plugin)
+
+            Quality criteria:
+            1. 1-2 sentences, concise but specific
+            2. Mention CONCRETE capabilities (e.g., "trigger pipelines, view logs,
+               cancel jobs" — the more specific, the better)
+            3. User perspective: what can I DO with this plugin?
+            4. Professional marketing tone — clear, compelling
+            5. Specificity over brevity — always preserve specific feature mentions
+            6. PT-BR must be a natural, fluent translation
+
+            ## Examples
+
+            GOOD (specific, feature-rich):
+            EN: "A Backstage frontend plugin that lets you manage Kong Gateway
+            services, routes, and plugins directly from your software catalog.
+            You can view service details, configure plugins, and create or edit
+            routes — all without leaving Backstage."
+            PT: "Um plugin frontend para o Backstage que permite gerenciar serviços,
+            rotas e plugins do Kong Gateway diretamente pelo catálogo de software.
+            Você pode visualizar detalhes dos serviços, configurar plugins e criar
+            ou editar rotas — tudo sem sair do Backstage."
+
+            Weaker alternative (for comparison):
+            EN: "A Backstage frontend plugin that lets you manage Kong Gateway
+            services, routes, and plugins directly from your software catalog
+            entity pages."
+            → The first version is stronger because it lists specific capabilities
+            (view details, configure plugins, create/edit routes). Always prefer
+            the version with more concrete features.
+
+            ## Step 3: Verify Before Writing
+
+            Before writing the output files, verify:
+            - If preserving: the text is exactly as-is from existing-en/pt.txt
+            - If updating: the new description mentions at least as many specific
+              features as the existing one, plus any new capabilities
+            - The PT-BR version reads naturally and fluently
+
+            ## Output
+
+            Write two files:
+            1. description-en.txt — English description only (plain text, no quotes,
+               no markdown, no labels)
+            2. description-pt.txt — Brazilian Portuguese (pt-BR) description only
+
+            If preserving existing descriptions, write them exactly as-is.
+            If readme.md is empty and no existing description exists,
+            write "No description available." in both files.
 
       - name: Build artifact
         env:
@@ -102,12 +186,10 @@ jobs:
           DESC_PT=$(cat description-pt.txt 2>/dev/null || echo "No description available.")
           SOURCE_TYPE="${PLUGIN_SOURCE%%:*}"
 
-          # Pre-cache README for non-github sources
           if [ "$SOURCE_TYPE" != "github" ] && [ -s readme.md ]; then
             cp readme.md readme-cache.md
           fi
 
-          # Convert github source to usable URL
           if [ "$SOURCE_TYPE" = "github" ]; then
             REF="${PLUGIN_SOURCE#github:}"
             URL="https://github.com/$REF"
@@ -126,7 +208,8 @@ jobs:
             --arg npm "$PLUGIN_NPM" \
             --argjson tags "$PLUGIN_TAGS" \
             '{id:$id,title:$title,path:$path,image:$image,
-              url:$url,desc_en:$desc_en,desc_pt:$desc_pt,npm:$npm,tags:$tags}' \
+              url:$url,desc_en:$desc_en,desc_pt:$desc_pt,npm:$npm,
+              tags:$tags}' \
             > plugin-data.json
 
       - uses: actions/upload-artifact@v4
@@ -152,10 +235,8 @@ jobs:
 
       - name: Generate plugins.json and patch locales
         run: |
-          # Merge plugin artifacts
           PLUGINS=$(find artifacts/ -name 'plugin-data.json' -exec cat {} \; | jq -s '.')
 
-          # plugins.json — EN descriptions for en, PT descriptions for pt
           echo "$PLUGINS" | jq '{
             en: [.[] | {id: .id, image: .image, title: .title,
                         path: .path, tags: .tags, desc: .desc_en, url: .url}],
@@ -163,7 +244,6 @@ jobs:
                         path: .path, tags: .tags, desc: .desc_pt, url: .url}]
           }' > src/data/plugins/plugins.json
 
-          # Patch locale files — each locale gets its own language
           echo "$PLUGINS" | jq -c '.[]' | while IFS= read -r row; do
             ID=$(echo "$row" | jq -r '.id')
             DESC_EN=$(echo "$row" | jq -r '.desc_en')
@@ -176,7 +256,6 @@ jobs:
               locales/pt.json > tmp.json && mv tmp.json locales/pt.json
           done
 
-          # Pre-cache READMEs for non-github plugins
           mkdir -p src/data/plugins/readmes
           for dir in artifacts/plugin-*/; do
             if [ -f "$dir/readme-cache.md" ]; then
@@ -185,7 +264,6 @@ jobs:
             fi
           done
 
-          # Clean up artifacts directory before PR creation
           rm -rf artifacts/
 
       - uses: peter-evans/create-pull-request@v6
