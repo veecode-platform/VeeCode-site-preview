@@ -49,6 +49,7 @@ interface PricingCardData {
   features: string[];
   isFreeTier?: boolean;
   isContactForm?: boolean;
+  formId?: string;
 }
 
 function PricingCardItem({ card }: { card: PricingCardData }) {
@@ -73,7 +74,7 @@ function PricingCardItem({ card }: { card: PricingCardData }) {
         {card.isFreeTier ? (
           <HubSpotPopupButton buttonText={card.buttonText} />
         ) : card.isContactForm ? (
-          <HubSpotContactButton buttonText={card.buttonText} />
+          <HubSpotContactButton buttonText={card.buttonText} formId={card.formId!} />
         ) : (
           <NavigationLink href={card.buttonHref}>
             <button className="w-full py-4 bg-[#33FFCE] text-gray-800 rounded-lg font-bold text-base shadow-xl hover:bg-[#2ee6b9] hover:scale-105 transition-all">
@@ -130,6 +131,7 @@ export default async function PricingPage({ params }: PageProps) {
       buttonText: "Comece agora",
       buttonHref: "/contact-us",
       isContactForm: true,
+      formId: "e4496b1a-c33c-4a0e-ab56-d64f223b8c55",
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -145,6 +147,7 @@ export default async function PricingPage({ params }: PageProps) {
       buttonText: "Comece agora",
       buttonHref: "/contact-us",
       isContactForm: true,
+      formId: "4e2e5cc3-d410-4c39-9f51-0cc22da06702",
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -159,6 +162,7 @@ export default async function PricingPage({ params }: PageProps) {
       buttonText: "Entre em contato",
       buttonHref: "/contact-us",
       isContactForm: true,
+      formId: "18504ff1-ca29-442c-8f7d-f3df138c3f06",
       features: [
         "Suporte 8x5",
         "Suporte para plugins e templates",
@@ -173,6 +177,7 @@ export default async function PricingPage({ params }: PageProps) {
       buttonText: "Entre em contato",
       buttonHref: "/contact-us",
       isContactForm: true,
+      formId: "18504ff1-ca29-442c-8f7d-f3df138c3f06",
       features: [
         "Suporte 24x7",
         "Suporte para plugins e templates",
