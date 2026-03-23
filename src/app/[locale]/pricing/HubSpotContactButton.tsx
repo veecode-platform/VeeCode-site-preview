@@ -4,16 +4,17 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 
 const PORTAL_ID = "48576194";
-const FORM_ID = "4e2e5cc3-d410-4c39-9f51-0cc22da06702";
 const REGION = "na1";
 const CONTAINER_ID = "hubspot-pricing-contact-form-container";
 
 interface HubSpotContactButtonProps {
   buttonText: string;
+  formId: string;
 }
 
 export default function HubSpotContactButton({
   buttonText,
+  formId,
 }: HubSpotContactButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -49,7 +50,7 @@ export default function HubSpotContactButton({
       if (window.hbspt && formContainerRef.current) {
         window.hbspt.forms.create({
           portalId: PORTAL_ID,
-          formId: FORM_ID,
+          formId: formId,
           region: REGION,
           target: `#${CONTAINER_ID}`,
         });
@@ -71,7 +72,7 @@ export default function HubSpotContactButton({
     return () => {
       script.remove();
     };
-  }, [isOpen]);
+  }, [isOpen, formId]);
 
   const modal = isOpen ? (
     <div
