@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/Button";
+import { NavigationLink } from "@/components/ui/links";
 import { ScrollReveal } from "@/components/ui/animations";
 
 interface HeroProps {
@@ -35,9 +36,11 @@ const Hero: React.FC<HeroProps> = ({
       </div>
       <ScrollReveal delay={0.2}>
         <div className="flex items-center gap-[23px] text-base mt-[31px]">
-          <Button variant="default" size="sm" aria-label={buttonLabel1} disabled>
-            {buttonLabel1}
-          </Button>
+          <NavigationLink href="/contact-us">
+            <Button variant="default" size="sm" aria-label={buttonLabel1}>
+              {buttonLabel1}
+            </Button>
+          </NavigationLink>
           <a href="#early-access">
             <Button variant="outline" size="sm" aria-label={buttonLabel2}>
               {buttonLabel2}
