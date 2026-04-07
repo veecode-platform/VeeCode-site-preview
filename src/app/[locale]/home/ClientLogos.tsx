@@ -3,10 +3,11 @@
 import Image from "next/image";
 import React from "react";
 
-const VertigoLogo = "/assets/home/vertigo-logo.webp";
+const VertigoLogo = "/assets/home/Vertigo_nova.png";
 const AmbimaLogo = "/assets/home/ambima-logo.webp";
 const SankhyaLogo = "/assets/home/sankhya.webp";
 const CredSystemLogo = "/assets/home/credsystem-logo.webp";
+const RodonavesgLogo = "/assets/home/rodonaves - logo.png";
 
 interface ClientLogosProps {
   label?: string;
@@ -33,6 +34,11 @@ const ClientLogos: React.FC<ClientLogosProps> = ({ label }) => {
       id: 4,
       logo: CredSystemLogo,
       alt: "CredSystem logo",
+    },
+    {
+      id: 5,
+      logo: RodonavesgLogo,
+      alt: "Rodonaves logo",
     },
   ];
 
